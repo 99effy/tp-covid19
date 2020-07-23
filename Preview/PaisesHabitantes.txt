@@ -1,0 +1,200 @@
+India	       					1 409 902 000	
+China​	       			 		1 403 426 000	
+Estados Unidos					331 800 000	
+Indonesia			 		271 629 000	
+Pakistan			 		224 654 000	
+Nigeria	        		 		219 743 000	
+Brasil	        				211 420 000	
+Bangladesh		 	 		181 781 000	
+Rusia​	        		 		146 712 000	
+Mexico	        	   			127 792 000	
+Japon	        	         		125 986 000	
+Filipinas		 	 		108 772 000	
+Egipto	       			 		101 000 000	
+Etiopia	        		 		100 882 000	
+Vietnam	                           		97 591 000	
+R. D. del Congo			 		89 561 000	
+Iran	        		 		83 914 000	
+Turquia	        		 		83 752 000	
+Alemania			 		83 421 000	
+Tailandia		  	 		68 232 000	
+Reino Unido		  	 		67 180 000	
+Francia​	        	 	 		64 962 000	
+Italia	        		 		60 346 000	
+Sudafrica			 		59 750 000	
+Tanzania		 	 		55 966 000	
+Birmania		 	 		54 918 000	
+Corea del Sur		 	 		51 781 000	
+Colombia		 			50 375 000	
+Kenia	        		 		48 398 000	
+España​	        		 		47 183 000	
+Argentina		​			45 377 000	
+Sudan				 		44 499 000	
+Argelia						44 271 000	
+Ucrania​			  	 		41 793 000	
+Uganda	 			 		41 590 000	
+Irak			 	 		40 150 000	
+Polonia				 		38 383 000	
+Canada						38 116 000	
+Marruecos		       ​	 		35 820 000	
+Arabia Saudita			 		35 044 000	
+Uzbekistan			 		34 128 000	
+Malasia				 		33 488 000	
+Afganistan			 		32 961 000	
+Peru			 			32 824 000	
+Venezuela					32 606 000	
+Angola				 		31 128 000	
+Ghana				 		30 967 000	
+Mozambique			 		30 067 000	
+Nepal						29 996 000	
+Yemen				 		29 826 000	
+Costa de Marfil			 		26 454 000	
+Madagascar			 		26 251 000	
+Australia					25 769 000	
+Corea del Norte		 	 		25 584 000	
+Camerun				 		24 950 000	
+R. de China	​		 		23 614 000	
+Niger				 		23 196 000	
+Sri Lanka			 		21 937 000	
+Burkina Faso			 		21 510 000	
+Mali						20 555 000	
+Chile						19 374 000	
+Rumania				 		19 237 000	
+Kazajistan			 		18 759 000	
+Malaui				 		18 513 000	
+Zambia				 		17 885 000	
+Ecuador						17 534 000	
+Siria				 		17 501 000	
+Paises Bajos			 		17 458 000	
+Guatemala					16 858 000	
+Senegal				 		16 706 000	
+Chad				 		16 245 000	
+Somalia				 		15 893 000	
+Camboya				 		15 535 000	
+Zimbabue			 		15 474 000	
+Sudan del Sur			 		13 287 000	
+Ruanda				 		12 663 000	
+Guinea				 		12 512 000	
+Benin				 		12 114 000	
+Tunez				 		11 870 000	
+Haiti				 		11 743 000	
+Bolivia						11 635 000	
+Belgica				 		11 554 000	
+Burundi				 		11 216 000	
+Cuba				 	11 192 000	
+Jordania​		 	 		10 841 000	
+Grecia				 		10 714 000	
+R. Checa			 		10 702 000	
+R. Dominicana					10 454 000	
+Suecia				 		10 366 000	
+Portugal			 	10 222 000	
+Azerbaiyan			 		10 110 000	
+Emiratos Arabes U.		 		9 890 000	
+Hungria				 		9 764 000	
+Tayikistan			 		9 429 000	
+Bielorrusia			 		9 395 000	
+Honduras					9 309 000	
+Israel				 		9 240 000	
+P. Nueva Guinea					8 967 000	
+Austria				 		8 934 000	
+Suiza						8 647 000	
+Sierra Leona			 		8 116 000	
+Togo 				 		7 706 000	
+Hong Kong	​		 		7 508 000	
+Paraguay					7 253 000	
+Laos				 		7 242 000	
+Serbia				 		6 949 000	
+Bulgaria			 		6 928 000	
+Libia				 		6 871 000	
+Libano	​			 		6 825 000	
+El Salvador			 	6 766 000	
+Nicaragua			 	6 596 000	
+Kirguistan			 		6 583 000	
+Turkmenistan			 		6 031 000	
+Dinamarca			 		5 832 000	
+Singapur​			 		5 750 000	
+R. del Congo			 		5 518 000	
+Finlandia			 		5 500 000	
+Eslovaquia			 		5 461 000	
+Noruega				 		5 381 000	
+Costa Rica					5 111 000	
+Palestina​			 		5 105 000	
+Nueva Zelanda					5 073 000	
+Irlanda				 		4 999 000	
+R. Centroafricana		 		4 830 000	
+Oman				 		4 702 000	
+Liberia				 		4 568 000	
+Kuwait				 		4 525 000	
+Panama						4 279 000	
+Mauritania			 		4 173 000	
+Croacia				 		4 105 000	
+Georgia​				 		3 717 000	
+Eritrea				 		3 546 000	
+Uruguay						3 531 000	
+Bosnia-Herzegovina		 		3 281 000	
+Puerto Rico					3 192 000	
+Mongolia			 		3 164 000	
+Armenia				 		2 955 000	
+Albania				 		2 840 000	
+Catar				 		2 817 000	
+Lituania			 		2 787 000	
+Jamaica						2 726 000	
+Moldavia			 		2 587 000	
+Namibia				 		2 504 000	
+Botsuana			 		2 375 000	
+Gambia				 		2 229 000	
+Gabon				 		2 226 000	
+Eslovenia			 		2 098 000	
+Macedonia del N.		 		2 080 000	
+Lesoto				 		2 065 000	
+Letonia				 		1 901 000	
+Kosovo	​			 		1 799 000	
+Guinea-Bisau			 		1 625 000	
+Barein				 		1 592 000	
+Guinea E.			 		1 455 000	
+Timor Oriental			 		1 425 000	
+Trinidad y Tobago				1 368 000	
+Estonia				 		1 331 000	
+Mauricio			 		1 270 000	
+Suazilandia			 		1 118 000	
+Yibuti				 		1 109 000	
+Fiyi						899 000		
+Comoras				 		897 000		
+Chipre				 		894 000		
+Reunion 			 		869 000		
+Guyana				 	787 000		
+Butan				 		749 000		
+Islas Salomon					701 000		
+Macao 				 		699 000		
+Luxemburgo			 		632 000		
+Montenegro			 		622 000		
+R. Arabe S. D.		  			597 000		
+Surinam						587 000		
+Cabo Verde			 		557 000		
+Malta				 		520 000		
+Brunei				 		477 000		
+Belice				 	419 000		
+Bahamas						389 000		
+Guadalupe 					387 000		
+Maldivas			 		385 000		
+Islandia			 		370 000		
+Martinica 					365 000		
+Vanuatu						324 000		
+Guayana F.					292 000		
+Barbados					287 000		
+Mayotte 			 		285 000		
+Polinesia Francesa				280 000		
+Nueva Caledonia 				272 000		
+Santo Tome y P.			 		210 000		
+Samoa						203 000		
+Santa Lucia					184 000		
+Guam 						174 000		
+Curazao 					157 000		
+Kiribati					125 000		
+Aruba 						113 000		
+Granada						113 000		
+SV. y las Granadinas				111 000		
+Jersey 				 		109 000		
+Micronesia					105 000		
+I. V. Americanas				104 000		
+Tonga						99 000	        

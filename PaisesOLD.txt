@@ -1,0 +1,203 @@
+            *Listado de paises*
+---------------------------------------
+Paises               Contin. Habitantes
+India  		                               Asia 1409902000
+China                                        Asia 1403426000
+Estados Unidos                     America  331800000
+Indonesia                         Asia  271629000
+Pakistan                          Asia  224654000
+Nigeria                             Africa  219743000
+Brasil                             America  211420000
+Bangladesh                        Asia  181781000
+Rusia                              Europa  146712000
+Mexico                             America  127792000
+Japon                                 Asia  125986000
+Filipinas                         Asia  108772000
+Egipto                                      Africa  101000000
+Etiopia                             Africa  100882000
+Vietnam                               Asia   97591000
+R. D. del Congo                     Africa   89561000
+Iran                                  Asia   83954000
+Turquia                               Asia   83752000
+Alemania                        Europa   83421000
+Tailandia                         Asia   68232000
+Reino Unido                     Europa   67180000
+Francia                                Europa   64962000
+Italia                              Europa   60346000
+Sudafrica                       Africa   59750000
+Tanzania                        Africa   55966000
+Birmania                          Asia   54918000
+Corea del Sur                         Asia   51781000
+Colombia                       America   50375000
+Kenia                                 Asia   48398000
+España                             Europa   47183000
+Argentina                      America   45377000
+Sudan                       Africa   44499000
+Argelia                     Africa   44271000
+Ucrania                                    Europa   41793000
+Uganda                      Africa   41590000
+Irak                                      Asia   40150000
+Polonia                     Europa   38383000
+Canada                             America   38116000
+Marruecos                              Africa   35820000
+Arabia Saudita                        Asia   35044000
+Uzbekistan                        Asia   34128000
+Malasia                       Asia   33488000
+Afganistan                        Asia   32961000
+Peru                                   America   32824000
+Venezuela                      America   32606000
+Angola                      Africa   31128000
+Ghana                       Africa   30967000
+Mozambique                      Africa   30067000
+Nepal                         Asia   29996000
+Yemen                                 Asia   29826000
+Costa de Marfil                     Africa   26454000
+Madagascar                      Africa   26251000
+Australia                  Oceania   25769000
+Corea del Norte                       Asia   25584000
+Camerun                     Africa   24950000
+R. de China                       Asia   23614000
+Niger                       Africa   23196000
+Sri Lanka                       Africa   21937000
+Burkina Faso                        Africa   21510000
+Mali                                        Africa   20555000
+Chile                              America   19374000
+Rumania                             Europa   19237000
+Kazajistan                        Asia   18759000
+Malaui                      Africa   18513000
+Zambia                      Africa   17885000
+Ecuador                    America   17534000
+Siria                         Asia   17501000
+Paises Bajos                        Europa   17458000
+Guatemala                      America   16858000
+Senegal                     Africa   16706000
+Chad                        Africa   16245000
+Somalia                     Africa   15893000
+Camboya                       Asia   15535000
+Zimbabue                        Africa   15474000
+Sudan del Sur                       Africa   13287000
+Ruanda                      Africa   12663000
+Guinea                              Africa   12512000
+Benin                       Africa   12114000
+Tunez                       Africa   11870000
+Haiti                       Africa   11743000
+Bolivia                    America   11635000
+Belgica                             Europa   11554000
+Burundi                     Africa   11216000
+Cuba                       America   11192000
+Jordania                         Asia   10841000
+Grecia                      Europa   10714000
+R. Checa                        Europa   10702000
+R. Dominicana                      America   10454000
+Suecia                      Europa   10366000
+Portugal                       America   10222000
+Azerbaiyan                        Asia   10110000
+Emiratos Arabes U.                Asia    9900000
+Hungria                     Europa    9640000
+Tayikistan                Asia    9500000
+Bielorrusia                     Europa    9395000
+Honduras                       America    9309000
+Israel                        Asia    9240000
+P. Nueva Guinea                    Oceania    8967000
+Austria                     Europa    8934000
+Suiza                       Europa    8647000
+Sierra Leona                        Africa    8116000
+Togo                                Africa    7706000
+Hong Kong                         Asia    7508000
+Paraguay                       America    7253000
+Laos                          Asia    7242000
+Serbia                      Europa    6949000
+Bulgaria                        Europa    6928000
+Libia                       Africa    6871000
+Libano                                 Africa    6825000
+El Salvador                    America    6666000
+Nicaragua                      America    6596000
+Kirguistan                        Asia    6583000
+Turkmenistan                          Asia    6031000
+Dinamarca                   Europa    5832000
+Singapur                         Asia    5750000
+R. del Congo                        Africa    5518000
+Finlandia                       Europa    5500000
+Eslovaquia                      Europa    5461000
+Noruega                     Europa    5381000
+Costa Rica                     America    5111000
+Palestina                        Asia    5105000
+Nueva Zelanda                      Oceania    5073000
+Irlanda                     Europa    4999000
+R. Centroafricana           Africa    4830000
+Oman                          Asia    4702000
+Liberia                     Africa    4568000
+Kuwait                        Asia    4525000
+Panama                     America    4279000
+Mauritania                      Africa    4173000
+Croacia                     Europa    4105000
+Georgia                        Europa    3717000
+Eritrea                     Africa    3546000
+Uruguay                    America    3531000
+Bosnia-Herzegovina          Europa    3281000
+Puerto Rico                    America    3192000
+Mongolia                          Asia    3164000
+Armenia                       Asia    2955000
+Albania                     Europa    2840000
+Catar                         Asia    2817000
+Lituania                        Europa    2787000
+Jamaica                    America    2726000
+Moldavia                        Europa    2587000
+Namibia                     Africa    2504000
+Botsuana                        Africa    2375000
+Gambia                      Africa    2229000
+Gabon                       Africa    2226000
+Eslovenia                       Europa    2098000
+Macedonia del N.            Europa    2080000
+Lesoto                      Africa    2065000
+Letonia                     Europa    1901000
+Kosovo                                 Europa    1799000
+Guinea-Bisau                        Africa    1625000
+Barein                            Asia    1592000
+Guinea E.                       Africa    1455000
+Timor Oriental                        Asia    1425000
+Trinidad y Tobago          America    1360000
+Estonia                     Europa    1331000
+Mauricio                    Africa    1270000
+Suazilandia                     Africa    1118000
+Yibuti                      Africa    1109000
+Fiyi                       Oceania     999000
+Comoras                     Africa     897000
+Chipre                      Europa     894000
+Reunion                         Africa     869000
+Guyana                     America     787000
+Butan                         Asia     749000
+Islas Salomon                      Oceania     701000
+Macao                         Asia     699000
+Luxemburgo                      Europa     632000
+Montenegro                      Europa     622000
+R. Arabe S. D.                      Africa     597000
+Surinam                    America     587000
+Cabo Verde                      Africa     557000
+Malta                               Europa     520000
+Brunei                        Asia     477000
+Belice                     America     419000
+Bahamas                    America     389000
+Guadalupe                      America     387000
+Maldivas                      Asia     385000
+Islandia                        Europa     370000
+Martinica                  America     365000
+Vanuatu                    Oceania     324000
+Guayana F.                     America     292000
+Barbados                       America     287000
+Mayotte                         Africa     285000
+Polinesia Francesa         Oceania     280000
+Nueva Caledonia            Oceania     272000
+Santo Tome y P.                     Africa     210000
+Samoa                      Oceania     203000
+Santa Lucia                    America     184000
+Guam                               Oceania     174000
+Curazao                    America     157000
+Kiribati                       Oceania     125000
+Aruba                      America     113000
+Granada                    America     113000
+SV. y las Granadinas       America     111000
+Jersey                      Europa     109000
+Micronesia                     Oceania     105000
+I. V. Americanas           America     104000
+Tonga                      Oceania      99000

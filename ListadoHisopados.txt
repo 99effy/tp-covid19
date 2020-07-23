@@ -1,0 +1,36 @@
+                                                              Listado de Hisopados
+===========================================================================================================================
+Nro.  Nom.                 Cant.Hab.    ------------- Cantidades de Hisopados por mes ------------   Cant.   Porcentajes
+---------------------------------------------------------------------------------------------------------------------------
+Ord.  País                               Ene      Feb     Mar      Abr     May      Jun       Jul     Tot.                
+---------------------------------------------------------------------------------------------------------------------------
+  1            Alemania 1403426000	teatrfag 
+  2            Alemania 331800000	teatrfag 
+  3             Argelia 271629000	teatrfag 
+  4             Argelia 224654000	teatrfag 
+  5           Argentina 219743000	teatrfag 
+  6           Argentina 211420000	teatrfag 
+  7            Birmania 181781000	teatrfag 
+  8            Birmania 146712000	teatrfag 
+  9            Colombia 127792000	teatrfag 
+ 10            Colombia 125986000	teatrfag 
+ 11         CoreadelSur 108772000	teatrfag 
+ 12         CoreadelSur 101000000	teatrfag 
+ 13             España 100882000	teatrfag 
+ 14             España 97591000	teatrfag 
+ 15             Francia 89561000	teatrfag 
+ 16             Francia 83954000	teatrfag 
+ 17                Iran 83752000	teatrfag 
+ 18                Iran 83421000	teatrfag 
+ 19              Italia 68232000	teatrfag 
+ 20              Italia 67180000	teatrfag 
+ 21               Kenia 64962000	teatrfag 
+ 22               Kenia 60346000	teatrfag 
+ 23          ReinoUnido 59750000	teatrfag 
+ 24          ReinoUnido 55966000	teatrfag 
+ 25           Sudafrica 54918000	teatrfag 
+ 26           Sudafrica 51781000	teatrfag 
+ 27               Sudan 50375000	teatrfag 
+ 28               Sudan 48398000	teatrfag 
+ 29           Tailandia 47183000	teatrfag 
+ 30           Tailandia 45377000	teatrfag 

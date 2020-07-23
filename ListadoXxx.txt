@@ -1,0 +1,859 @@
+ India              
+1403426000
+ China              
+ 331800000
+ Estados Unidos     
+ 271629000
+ Indonesia          
+ 224654000
+ Pakistan           
+ 219743000
+ Nigeria            
+ 211420000
+ Brasil             
+ 181781000
+ Bangladesh         
+ 146712000
+ Rusia              
+ 127792000
+ Mexico             
+ 125986000
+ Japon              
+ 108772000
+ Filipinas          
+ 101000000
+ Egipto             
+ 100882000
+ Etiopia            
+  97591000
+ Vietnam            
+  89561000
+ R. D. del Congo    
+  83954000
+ Iran               
+  83752000
+ Turquia            
+  83421000
+ Alemania           
+  68232000
+ Tailandia          
+  67180000
+ Reino Unido        
+  64962000
+ Francia            
+  60346000
+ Italia             
+  59750000
+ Sudafrica          
+  55966000
+ Tanzania           
+  54918000
+ Birmania           
+  51781000
+ Corea del Sur      
+  50375000
+ Colombia           
+  48398000
+ Kenia              
+  47183000
+ EspaÃ±a            
+  45377000
+ Argentina          
+  44499000
+ Sudan              
+  44271000
+ Argelia            
+  41793000
+ Ucrania            
+  41590000
+ Uganda             
+  40150000
+ Irak               
+  38383000
+ Polonia            
+  38116000
+ Canada             
+  35820000
+ Marruecos          
+  35044000
+ Arabia Saudita     
+  34128000
+ Uzbekistan         
+  33488000
+ Malasia            
+  32961000
+ Afganistan         
+  32824000
+ Peru               
+  32606000
+ Venezuela          
+  31128000
+ Angola             
+  30967000
+ Ghana              
+  30067000
+ Mozambique         
+  29996000
+ Nepal              
+  29826000
+ Yemen              
+  26454000
+ Costa de Marfil    
+  26251000
+ Madagascar         
+  25769000
+ Australia          
+  25584000
+ Corea del Norte    
+  24950000
+ Camerun            
+  23614000
+ R. de China        
+  23196000
+ Niger              
+  21937000
+ Sri Lanka          
+  21510000
+ Burkina Faso       
+  20555000
+ Mali               
+  19374000
+ Chile              
+  19237000
+ Rumania            
+  18759000
+ Kazajistan         
+  18513000
+ Malaui             
+  17885000
+ Zambia             
+  17534000
+ Ecuador            
+  17501000
+ Siria              
+  17458000
+ Paises Bajos       
+  16858000
+ Guatemala          
+  16706000
+ Senegal            
+  16245000
+ Chad               
+  15893000
+ Somalia            
+  15535000
+ Camboya            
+  15474000
+ Zimbabue           
+  13287000
+ Sudan del Sur      
+  12663000
+ Ruanda             
+  12512000
+ Guinea             
+  12114000
+ Benin              
+  11870000
+ Tunez              
+  11743000
+ Haiti              
+  11635000
+ Bolivia            
+  11554000
+ Belgica            
+  11216000
+ Burundi            
+  11192000
+ Cuba               
+  10841000
+ Jordania           
+  10714000
+ Grecia             
+  10702000
+ R. Checa           
+  10454000
+ R. Dominicana      
+  10366000
+ Suecia             
+  10222000
+ Portugal           
+  10110000
+ Azerbaiyan         
+   9900000
+ Emiratos Arabes U. 
+   9640000
+ Hungria            
+   9500000
+ Tayikistan         
+   9395000
+ Bielorrusia        
+   9309000
+ Honduras           
+   9240000
+ Israel             
+   8967000
+ P. Nueva Guinea    
+   8934000
+ Austria            
+   8647000
+ Suiza              
+   8116000
+ Sierra Leona       
+   7706000
+ Togo               
+   7508000
+ Hong Kong          
+   7253000
+ Paraguay           
+   7242000
+ Laos               
+   6949000
+ Serbia             
+   6928000
+ Bulgaria           
+   6871000
+ Libia              
+   6825000
+ Libano             
+   6666000
+ El Salvador        
+   6596000
+ Nicaragua          
+   6583000
+ Kirguistan         
+   6031000
+ Turkmenistan       
+   5832000
+ Dinamarca          
+   5750000
+ Singapur           
+   5518000
+ R. delCongo        
+   5500000
+ Finlandia          
+   5461000
+ Eslovaquia         
+   5381000
+ Noruega            
+   5111000
+ Costa Rica         
+   5105000
+ Palestina          
+   5073000
+ Nueva Zelanda      
+   4999000
+ Irlanda            
+   4830000
+ R. Centroafricana  
+   4702000
+ Oman               
+   4568000
+ Liberia            
+   4525000
+ Kuwait             
+   4279000
+ Panama             
+   4173000
+ Mauritania         
+   4105000
+ Croacia            
+   3717000
+ Georgia            
+   3546000
+ Eritrea            
+   3531000
+ Uruguay            
+   3281000
+ Bosnia-Herzegovina 
+   3192000
+ Puerto Rico        
+   3164000
+ Mongolia           
+   2955000
+ Armenia            
+   2840000
+ Albania            
+   2817000
+ Catar              
+   2787000
+ Lituania           
+   2726000
+ Jamaica            
+   2587000
+ Moldavia           
+   2504000
+ Namibia            
+   2375000
+ Botsuana           
+   2229000
+ Gambia             
+   2226000
+ Gabon              
+   2098000
+ Eslovenia          
+   2080000
+ Macedonia del N.   
+   2065000
+ Lesoto             
+   1901000
+ Letonia            
+   1799000
+ Kosovo             
+   1625000
+ Guinea-Bisau       
+   1592000
+ Barein             
+   1455000
+ GuineaE.           
+   1425000
+ Timor Oriental     
+   1360000
+ Trinidad y Tobago  
+   1331000
+ Estonia            
+   1270000
+ Mauricio           
+   1118000
+ Suazilandia        
+   1109000
+ Yibuti             
+    999000
+ Fiyi               
+    897000
+ Comoras            
+    894000
+ Chipre             
+    869000
+ Reunion            
+    787000
+ Guyana             
+    749000
+ Butan              
+    701000
+ IslasSalomon       
+    699000
+ Macao              
+    632000
+ Luxemburgo         
+    622000
+ Montenegro         
+    597000
+ R. Arabe S. D.     
+    587000
+ Surinam            
+    557000
+ Cabo Verde         
+    520000
+ Malta              
+    477000
+ Brunei             
+    419000
+ Belice             
+    389000
+ Bahamas            
+    387000
+ Guadalupe          
+    385000
+ Maldivas           
+    370000
+ Islandia           
+    365000
+ Martinica          
+    324000
+ Vanuatu            
+     92000
+ Guayana F.         
+    287000
+ Barbados           
+    285000
+ Mayotte            
+    280000
+ Polinesia Francesa 
+    272000
+ Nueva Caledonia    
+    210000
+ Santo Tome y P.    
+    203000
+ Samoa              
+    184000
+ Santa Lucia        
+    174000
+ Guam               
+    157000
+ Curazao            
+    125000
+ Kiribati           
+    113000
+ Aruba              
+    113000
+ Granada            
+    111000
+ SV. y las Granadin 
+    109000
+ Jersey             
+    105000
+ Micronesia         
+    104000
+ I. V. Americanas   
+     99000
+ Tonga              
+     99000
+ India              
+    243524
+                 Pº
+    312316
+                 —î
+    312433
+                 ¹é
+       432
+                  
+    556443
+                 n¥
+    213124
+                 ô<
+    185612
+                 "D
+       474
+                  *
+    231532
+                 ÿ‡
+    213212
+                 JA
+    457012
+                 \Ä
+       789
+                  k
+    213212
+                 Y=
+    223243
+                 ÝÝ
+    502323
+                 žl
+       765
+                  
+   2105376
+                    
+    751243
+                 “ý
+    451213
+                 ßs
+
+       879
+                  £
+ 538976288
+             r      
+    123213
+                 ºŠ
+    242532
+                 -c
+       543
+                  W
+ 538976353
+                    
+    231232
+                 ¤‡
+    321122
+                 aá
+       687
+                  
+ 538976288
+     nia            
+    342321
+                 óà
+    332213
+                 àÙ
+    189532
+                 Ò†
+1700952661
+ Malasia            
+    212132
+                 ôÙ
+    231222
+                 •î
+    397821
+                 Ë	
+       678
+                  Ž
+    342535
+                 u¯
+    323233
+                 Ã˜
+    189533
+                 Gä
+       282
+                  ^
+     69790
+                  ¼Ï
+     74613
+                  ¸`
+     87572
+                 }A
+       666
+                  ¢
+    105175
+                 Þ#
+     97640
+                  ›n
+     35436
+                  ÐS
+       548
+                  ;
+   2105376
+                    
+     97280
+                  È†
+     87540
+                  kŠ
+       506
+                  Ò
+ 538976288
+                    
+     62770
+                 ¨s
+     31240
+                 »é
+       758
+                  —
+ 538976288
+                    
+    112547
+                  æô
+    976404
+                  ›n
+       567
+                   ê
+ 538992997
+     n              
+     61414
+                 ×š
+    917501
+                  @ð
+     79589
+                 è—
+1735157058
+ Burundi            
+    135574
+                 É
+     68450
+                  Á8
+     42340
+                  Ô
+       743
+                  
+     50464
+                 Qx
+     67241
+                  °
+     15840
+                 “Â
+       681
+                  Æ
+     96337
+                 –
+    345044
+                 Ós
+     21455
+                    
+       776
+                  Æ
+    125535
+                 rŸ
+    615045
+                    
+     87549
+                 nA
+       854
+                  Ñ
+   2105376
+                    
+       150
+                  H
+      5430
+                    
+       805
+                   $
+ 538976288
+                    
+     36559
+                 Ó†
+    785777
+                  V
+       572
+                  p
+1851880563
+         a          
+     13342
+                 ÅI
+      9872
+                  ·
+       649
+                   .
+1970364790
+     ega            
+     30251
+                 &Ç
+     19540
+                  ý
+      8754
+                  ×
+1634497097
+ R. Centroafricana  
+      2554
+                  Ì
+       578
+                  
+      1478
+                 LÂ
+       241
+                  \
+     46552
+                  
+       754
+                  Q
+
+      4570
+                  4
+       513
+                   -
+     36575
+                 
++
+      4026
+                  ^!
+     91525
+                  Ÿ
+      1179
+                  Î
+       144
+                   
+        25
+                   º
+      1856
+                  Í
+       645
+                  m
+   2105376
+                    
+        27
+                  	
+    275084
+                  À#
+       452
+                   $
+ 538976288
+                    
+      3498
+                  ì.
+      9672
+                  2"
+       354
+                   C
+ 538976288
+         iental     
+     12341
+                  '
+       748
+                  ²
+        15
+                   
+1851878505
+     ti             
+      7545
+                  C
+       611
+                  Z
+      2145
+                  &
+1853187410
+ Guyana             
+      6743
+                  á
+       551
+                  
+      2013
+                  Í
+       583
+                  í
+      6356
+                  
+       533
+                  à
+      2311
+                  ÷
+       511
+                  N
+      5555
+                  ¤
+       492
+                  B
+      5741
+                  Ý
+       402
+                  ‡
+      3700
+                  B
+       274
+                  
+      3978
+                  
+       343
+                  M
+   2105376
+                 sa 
+       210
+                   È
+      1485
+                  y	
+       282
+                  
+ 538976288
+                    
+      5200
+                  ì
+      2134
+                  )	
+       223
+                   Ö
+ 538976288
+         s Granadin 
+      5000
+                  e
+       151
+                   ó
+       160
+                   –
+ 538976353
+     a              
+1852401731
+                 Wú"
+   1685696
+                    
+ 538976366
+                 (ç5
+   1859621
+                    
+ 538976353
+                  †
+   3346461
+                    
+ 538976288
+ Argelia            
+      3718
+                 ²Š
+   2105376
+     sia            
+1634166337
+                 Š
+   1579232
+          Marfil    
+1668505959
+                 ×Å*
+    310712
+                    
+ 538976288
+                  j
+    435105
+                    
+ 538976288
+ Zimbabue           
+      2601
+                 £Ç
+   2105376
+     ndi            
+1633842499
+                 +
+    623177
+          Arabes U. 
+ 543254898
+                 ü4
+    341231
+                    
+ 538976288
+                  E
+   2843700
+                    
+ 538976288
+ Singapur           
+      2156
+                  Ì
+   2105376
+     entroafricana  
+1851878735
+                  qc
+    408881
+                    
+1210933609
+                  d
+      3855
+                    
+ 538976288
+                 ¹&	
+     37982
+                    
+ 538976288
+ Trinidad y Tobago  
+      6090
+                  <É
+   2105376
+     na             
+1635022146
+                  ¹
+     47513
+                    
+ 538995045
+                  ²Z
+      2104
+                    
+ 538976288
+                  )	
+     24673
+                    
+ 538976288
+ Jersey             
+      1378
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0
+                    
+         0

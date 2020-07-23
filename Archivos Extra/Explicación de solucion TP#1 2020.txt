@@ -1,0 +1,26 @@
+Sugerencias de cómo encarar la solución para la consigna del T.P.#1 2020 CoronaV-19.
+
+1. Leer secuencialmente el archivo 'Paises.Txt' y volcarlo a una
+estructura de datos la cual podrá luego ser ordenada por uno de los datos descargados, o bien, ir insertándolos en orden.
+
+2. Leer secuencialmente el archivo 'ParteDiario.Txt' para ir realizando los cómputos correspondientes, de acuerdo al país y mes.
+
+3: Realizar los listados segun diseño solicitado, siendo estos listados los siguientes:
+
+	a: Listado de Hisopados.
+	b: Listado de Infectados.
+	c: Listado de Fallecidos.
+	d: Listado de Recuperados.
+
+Previo a cada uno de estos listados se deberá ordenarlos por la cantidad total de cada caso. El orden de los listados de cada caso es indistinto, es decir, no necesariamente en el orden indicado más arriba con a:, b:, c:, d:.
+
+¿Cómo organizar el grupo?
+
+Los grupos se pueden organizar seleccionando un líder del grupo, y éste podrá impartir las divisiones de tareas entre los integrantes del mismo. Por ejemplo, una persona puede encargarse a realizar un archivo de datos, otro integrante se encarga el otro archivo de datos, otros en pensar la mejor estrategia que se adapte para resolver el problema, luego en otro momento seguir repartiendo las tareas posteriores, en la fase de los dibujos de las estructuras de datos, en el desarrollo del algoritmo codificado, y en otra etapa posterior, repartir los módulos a desarrollar codificados en C++ entre los integrantes, finalmente o como última instancia realizar la docuentación del trabajo práctico adjuntandola en una carpeta y la entrega de toda la documentación via archivo adjunto al campusvirtual.
+
+IMPORTANTE: 
+
+Cada uno de los alumnos deben tener el conocimiento de todo el 'T.P.' y NO limitarse exclusivamene a la parte que se le haya asignado, para ello va a requerir que existan debates, entre los integrantes del grupo o explicación de cada uno de ellos que fue lo que realizó para que todos se enteren del trabajo integral.
+La frase: 'Yo solo se lo que hice', NO se justifica; en cambio, la frase: 'Yo se lo que hice, y además se lo que hicieron los demás', es la que se debe imponer.
+
+ 

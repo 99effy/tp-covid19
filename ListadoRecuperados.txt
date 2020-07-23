@@ -1,0 +1,36 @@
+                                                            Listado de Recuperados
+===========================================================================================================================
+Nro.  Nom.                 Cant.Hab.     ------------- Cantidades de Recuperados por mes ------------   Cant.   Porcentajes
+---------------------------------------------------------------------------------------------------------------------------
+Ord.  País                                Ene      Feb     Mar      Abr     May      Jun       Jul     Tot.                
+---------------------------------------------------------------------------------------------------------------------------
+  1            Alemania 1403426000	da 
+  2            Alemania 331800000	da 
+  3             Argelia 271629000	da 
+  4             Argelia 224654000	da 
+  5           Argentina 219743000	da 
+  6           Argentina 211420000	da 
+  7            Birmania 181781000	da 
+  8            Birmania 146712000	da 
+  9            Colombia 127792000	da 
+ 10            Colombia 125986000	da 
+ 11         CoreadelSur 108772000	da 
+ 12         CoreadelSur 101000000	da 
+ 13             España 100882000	da 
+ 14             España 97591000	da 
+ 15             Francia 89561000	da 
+ 16             Francia 83954000	da 
+ 17                Iran 83752000	da 
+ 18                Iran 83421000	da 
+ 19              Italia 68232000	da 
+ 20              Italia 67180000	da 
+ 21               Kenia 64962000	da 
+ 22               Kenia 60346000	da 
+ 23          ReinoUnido 59750000	da 
+ 24          ReinoUnido 55966000	da 
+ 25           Sudafrica 54918000	da 
+ 26           Sudafrica 51781000	da 
+ 27               Sudan 50375000	da 
+ 28               Sudan 48398000	da 
+ 29           Tailandia 47183000	da 
+ 30           Tailandia 45377000	da 
