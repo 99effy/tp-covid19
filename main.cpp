@@ -43,15 +43,13 @@ typedef struct {
 			totalFallecidosMes[7];
 } tvrPais;
 
-
 ifstream archivoPaises;
 ifstream archivoParteDiario;
-
 static int contParDiaPaises;
-static tvrPais paisFinal[200];
 static tsPais paises[200];
 static tsParDia datosPaises[200];
 static tsCalc totalPaises[200];
+static tvrPais paisFinal[200];
 
 void Abrir();
 void Cerrar();
@@ -70,8 +68,8 @@ bool verifInstanciaPrevNom(tsCalc arregloCalc[], char* nomEnParDia);
 
 int main() {
     Abrir();
-    Listado();
     ProcesarParteDiario(totalPaises, datosPaises);
+    Listado();
     Cerrar();
     return 0;
 } // Actualizar el main del diagrama de flujo
@@ -99,12 +97,12 @@ void Abrir() {
         return;
     }
 
-}
+} // Abrir
 
 void Cerrar() {
     archivoPaises.close();
     archivoParteDiario.close();
-}
+} // Cerrar
 
 string replicate (char car, unsigned short n){
 
@@ -114,21 +112,21 @@ string replicate (char car, unsigned short n){
 		str+=car;
 
 	return str;
-}
+} // replicate
 
 void Listado() {
 
     ofstream OutPD1 ("ListadoHisopados.txt");
     OutPD1   << setw(82) <<"Listado de Hisopados" << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom.                 Cant.Hab.    ------------- Cantidades de Hisopados por mes ------------   Cant.   Porcentajes" << endl
+             << "Nro.  Nom." << setw(35) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Hisopados por mes " << setw(13) << replicate('-', 13) << " Cant.   Porcentajes\n"
              << replicate('-',123) << endl
              << "Ord.  País                               Ene      Feb     Mar      Abr     May      Jun       Jul     Tot.                "<< endl
              << replicate('-',123) << endl;
     for (short i = 0; i < 30 ; i++ ) {
       OutPD1 << setw(3) <<  i+1 << setw (20) << datosPaises[i].nomPais << ' '
              << paises[i].cantHabitantes
-             << "\t" <<  "teatrfag"  << ' ' << endl; //datosPaises[i].hisopados[2][15]
+             << "\t" <<  "teatrfag"  << ' ' << endl;
     }
 
 
@@ -142,7 +140,7 @@ void Listado() {
      for  (short i = 0; i < 30 ; i++ ) {
      OutPD2  << setw(3) <<  i+1 << setw (20) << datosPaises[i].nomPais << ' '
              << paises[i].cantHabitantes
-             << "\t" << "datosPaises.infectados" << ' ' << endl;//datosPaises[i].infectados[2][15]
+             << "\t" << "datosPaises.infectados" << ' ' << endl;
     }
 
     ofstream OutPD3 ("ListadoRecuperados.txt");
@@ -155,7 +153,7 @@ void Listado() {
      for (short i = 0; i < 30 ; i++ ) {
       OutPD3 << setw(3) <<  i+1 << setw (20) << datosPaises[i].nomPais << ' '
              << paises[i].cantHabitantes
-             << "\t" <<  "da" << ' ' << endl;// datosPaises[i].recuperados[2][15]
+             << "\t" <<  "da" << ' ' << endl;
     }
 
        ofstream OutPD4 ("ListadoFallecidos.txt");
@@ -167,20 +165,17 @@ void Listado() {
              << replicate('-',123) << endl;
      for (short i = 0; i < 30 ; i++ ) {
       OutPD4 << setw(3) <<  i+1 << setw (20) << datosPaises[i].nomPais << ' '
-             << "\t" <<  "teatrfag"  << ' ' << endl;//datosPaises[i].fallecidos[2][15]
+             << "\t" <<  "teatrfag"  << ' ' << endl;
     }
-}
+} // Listado
 
 bool LeerPaises(ifstream &archivoALeerPaises) {
 
     short i = 0;
     while ( archivoALeerPaises.good() * (i < MAX_PAIS) ) {
 
-
-
         char cantHabitantesToInt[15];
         archivoALeerPaises.get(paises[i].nomPais, 20);
-        paises[i].nomPais[19] = '\0';
         borrarEspaciosDeStr(paises[i].nomPais);
         archivoALeerPaises.ignore();
         archivoALeerPaises >> paises[i].continente;
@@ -189,12 +184,10 @@ bool LeerPaises(ifstream &archivoALeerPaises) {
         archivoALeerPaises.ignore();
         paises[i].cantHabitantes = atoi(cantHabitantesToInt);
 
-        // Descomentar debajo para probar función
-        // cout << i << " \\ " << paises[i].nomPais << " \\ " << paises[i].continente << " \\ " << paises[i].cantHabitantes << endl;
      i++;
      }
     return true;
-}
+} // LeerPaises
 
 bool LeerParteDiario(ifstream &archivoALeerParDia) {
 
@@ -219,25 +212,11 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
         archivoALeerParDia.ignore();
         archivoALeerParDia >> mesReg;
         archivoALeerParDia >> diaReg;
-        archivoALeerParDia.ignore();
         archivoALeerParDia >> hisopadosReg;
-        archivoALeerParDia.ignore();
         archivoALeerParDia >> infectadosReg;
-        archivoALeerParDia.ignore();
         archivoALeerParDia >> recuperadosReg;
-        archivoALeerParDia.ignore();
         archivoALeerParDia >> fallecidosReg;
         archivoALeerParDia.ignore();
-
-        /*
-        cout << nomPais << " \\ " << "Linea numero " << i << endl;
-        cout << mesReg << endl;
-        cout << diaReg << endl;
-        cout << hisopadosReg << endl;
-        cout << infectadosReg << endl;
-        cout << recuperadosReg << endl;
-        cout << fallecidosReg << endl;
-        */
 
         for (short j = 0; j < MAX_PAIS; j++){
 
@@ -247,9 +226,6 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
 
                 contParDiaPaises ++;
 
-                // Descomentar debajo para probar función
-                // cout << "Pais encontrado en linea: " << j << endl;
-
                 switch (mesReg) {
                 case 1:
                 case 3:
@@ -258,7 +234,7 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
                 case 8:
                 case 10:
                 case 12:
-                    if ( (diaReg >= 1) || (diaReg <= 31) ) {
+                    if ( (diaReg >= 1) && (diaReg <= 31) ) {
 
                         datosPaises[i].hisopados[mesReg][diaReg] = hisopadosReg;
                         datosPaises[i].infectados[mesReg][diaReg] = infectadosReg;
@@ -273,7 +249,7 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
                 case 6:
                 case 9:
                 case 11:
-                    if ( (diaReg >= 1) || (diaReg <= 30) ) {
+                    if ( (diaReg >= 1) && (diaReg <= 30) ) {
 
                         datosPaises[i].hisopados[mesReg][diaReg] = hisopadosReg;
                         datosPaises[i].infectados[mesReg][diaReg] = infectadosReg;
@@ -284,23 +260,13 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
                         break;
                     }
                 case 2:
-                    if ( (diaReg >= 1) || (diaReg <= 29) ) {
+                    if ( (diaReg >= 1) && (diaReg <= 29) ) {
 
                         datosPaises[i].hisopados[mesReg][diaReg] = hisopadosReg;
                         datosPaises[i].infectados[mesReg][diaReg] = infectadosReg;
                         datosPaises[i].recuperados[mesReg][diaReg] = recuperadosReg;
                         datosPaises[i].fallecidos[mesReg][diaReg] = fallecidosReg;
 
-                        /*
-                        for (short i = 0; i < contParDiaPaises; i++){
-                        cout << datosPaises[i].nomPais << "\\" << datosPaises[i].hisopados[mesReg][diaReg]<< "\\" << mesReg << "\\" << diaReg <<"en linea: "<< i << endl;
-                        cout << datosPaises[i].nomPais << "\\" << datosPaises[i].infectados[mesReg][diaReg] << "\\" << mesReg << "\\" << diaReg <<"en linea: "<< i << endl;
-                        cout << datosPaises[i].nomPais << "\\" << datosPaises[i].recuperados[mesReg][diaReg] << "\\" << mesReg << "\\" << diaReg <<"en linea: "<< i << endl;
-                        cout << datosPaises[i].nomPais << "\\" << datosPaises[i].fallecidos[mesReg][diaReg] << "\\" << mesReg << "\\" << diaReg <<"en linea: "<< i << endl;
-                       }
-                       */
-
-                       // cout << datosPaises[17].hisopados[3][21] << endl;
                     } else {
                         error = true;
                         break;
@@ -319,10 +285,8 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
 
     OrdxBurLPD(datosPaises, i + 1);
 
-    //cout << datosPaises[0].hisopados[3][21] << endl;
-
     return true;
-}
+} // LeerParteDiario
 
 void borrarEspaciosDeStr(char* string){
     short counter = 0;
@@ -349,7 +313,8 @@ bool OrdxBurLPD(tsParDia v[], short card) {
     } while (swap);
 
     return true;
-} // OrdxBur
+} // OrdxBurLPD
+
 bool IntCmbLPD(tsParDia &elem1, tsParDia &elem2) {
     tsParDia aux = elem1;
     elem1 = elem2;
@@ -374,7 +339,7 @@ void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
 
         if ( posRetornada == -1 ) {
 
-            cout << "Error en posicion: \"" << contTotPaises << "\" al leer pais \"" << totalPaises[contTotPaises].nomPais << "\"\n";
+            cout << "Error en posicion: " << contTotPaises << " al leer pais \"" << totalPaises[contTotPaises].nomPais << "\"\n";
             return;
 
         } else {
@@ -411,7 +376,7 @@ short BusBinVecPPD (tsCalc datosASumar[], short primPos, short ultPos, char* arr
         if (strcmp(datosASumar[medPos].nomPais, arrayNomPais) < 0 ) {
             primPos = medPos + 1;
         } else {
-             ultPos = medPos - 1;
+            ultPos = medPos - 1;
         }
     }
 
@@ -423,4 +388,4 @@ bool verifInstanciaPrevNom(tsCalc arregloCalc[], char* nomEnParDia) {
         if (strcmp(nomEnParDia, arregloCalc[i].nomPais) == 0) return true;
     }
     return false;
-}
+} // verifInstanciaPrevNom
