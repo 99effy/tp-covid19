@@ -374,7 +374,8 @@ void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
 
         if ( posRetornada == -1 ) {
 
-            cout << "Error en posicion: \"" << contTotPaises << "\" pais \"" << totalPaises[contTotPaises].nomPais << "\"\n";
+            cout << "Error en posicion: \"" << contTotPaises << "\" al leer pais \"" << totalPaises[contTotPaises].nomPais << "\"\n";
+            return;
 
         } else {
 
