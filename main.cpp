@@ -291,15 +291,15 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
                         datosPaises[i].recuperados[mesReg][diaReg] = recuperadosReg;
                         datosPaises[i].fallecidos[mesReg][diaReg] = fallecidosReg;
 
-                        for (short i = 0; i < contParDiaPaises; i++){
-                        
                         /*
+                        for (short i = 0; i < contParDiaPaises; i++){
                         cout << datosPaises[i].nomPais << "\\" << datosPaises[i].hisopados[mesReg][diaReg]<< "\\" << mesReg << "\\" << diaReg <<"en linea: "<< i << endl;
                         cout << datosPaises[i].nomPais << "\\" << datosPaises[i].infectados[mesReg][diaReg] << "\\" << mesReg << "\\" << diaReg <<"en linea: "<< i << endl;
                         cout << datosPaises[i].nomPais << "\\" << datosPaises[i].recuperados[mesReg][diaReg] << "\\" << mesReg << "\\" << diaReg <<"en linea: "<< i << endl;
                         cout << datosPaises[i].nomPais << "\\" << datosPaises[i].fallecidos[mesReg][diaReg] << "\\" << mesReg << "\\" << diaReg <<"en linea: "<< i << endl;
-                        */
                        }
+                       */
+
                        // cout << datosPaises[17].hisopados[3][21] << endl;
                     } else {
                         error = true;
@@ -360,39 +360,44 @@ bool IntCmbLPD(tsParDia &elem1, tsParDia &elem2) {
 // uso totalPaises y datosPaises
 
 void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
-    short posicionRetornada;
-    int numeroChistoso = 0;
+    short contTotPaises = 0;
+    short posRetornada;
 
-    for ( short i = 0; i < contParDiaPaises ; i++ ){
+    for (short i = 0; i < contParDiaPaises; i++) {
 
-        // TODO:    Verificar antes del strcpy si existe un pais en el arreglo de "nomPais" de totalPaises
-        //          Que strcpy solo corra si no existe el pais en el arreglo.
-
-        cout << totalPaises[i].nomPais << " \\ " << datosAMas[i].nomPais << endl;
-
-        if ( !verifInstanciaPrevNom(totalPaises, datosAMas[i].nomPais) ) {   
-            strcpy(totalPaises[i].nomPais, datosAMas[i].nomPais);
+        if ( !verifInstanciaPrevNom(totalPaises, datosAMas[i].nomPais) ) {
+            strcpy(totalPaises[contTotPaises].nomPais, datosAMas[i].nomPais);
+            contTotPaises++;
         }
 
-        posicionRetornada = BusBinVecPPD(totalPaises, 0, contParDiaPaises, datosAMas[i].nomPais);
+        posRetornada = BusBinVecPPD(totalPaises, 0, contTotPaises, datosAMas[i].nomPais);
 
-        cout << totalPaises[posicionRetornada].nomPais << " found at: " << posicionRetornada 
-        << " \\ " << datosAMas[i].nomPais << endl;
-        //cout << posicionRetornada << endl;
-        if (posicionRetornada != -1) {
-            for ( short k = 1 ; k < 8 ; k++ ){
-                for ( short j = 1; j < 31 ; j++ ) {
-                    if (datosPaises[posicionRetornada].hisopados[k][j] != 0) {
-                        totalPaises[posicionRetornada].totalHisopadosMes[k] += datosPaises[i].hisopados[k][j];
-                        // cout << totalPaises[posicionRetornada].nomPais << " \\ " 
-                        // << totalPaises[posicionRetornada].totalHisopadosMes[k] << endl;
-                        numeroChistoso += datosPaises[posicionRetornada].hisopados[k][j];
-                    }
+        if ( posRetornada == -1 ) {
+
+            cout << "Error en posicion: \"" << contTotPaises << "\" al leer pais \"" << totalPaises[contTotPaises].nomPais << "\"\n";
+            return;
+
+        } else {
+
+            for (short k = 1; k < 8; k++) {
+                for (short j = 1; j < 31; j++) {
+                    totalPaises[posRetornada].totalHisopadosMes[k] += datosAMas[i].hisopados[k][j];
                 }
-                // cout << "numeroChistoso = " << numeroChistoso << endl;
+                for (short j = 1; j < 31; j++) {
+                    totalPaises[posRetornada].totalInfectadosMes[k] += datosAMas[i].infectados[k][j];
+                }
+                for (short j = 1; j < 31; j++) {
+                    totalPaises[posRetornada].totalRecuperadosMes[k] += datosAMas[i].recuperados[k][j];
+                }
+                for (short j = 1; j < 31; j++) {
+                    totalPaises[posRetornada].totalFallecidosMes[k] += datosAMas[i].fallecidos[k][j];
+                }
             }
+
         }
+
     }
+
 } // ProcesarParteDiario
 
 short BusBinVecPPD (tsCalc datosASumar[], short primPos, short ultPos, char* arrayNomPais){
@@ -400,7 +405,7 @@ short BusBinVecPPD (tsCalc datosASumar[], short primPos, short ultPos, char* arr
     while (primPos < ultPos) {
         short medPos = (primPos + ultPos) / 2;
 
-        if (strcmp(datosASumar[medPos].nomPais, arrayNomPais) == 0) {
+        if (strcmp(arrayNomPais, datosASumar[medPos].nomPais) == 0) {
             return medPos;
         }
         if (strcmp(datosASumar[medPos].nomPais, arrayNomPais) < 0 ) {
@@ -409,12 +414,13 @@ short BusBinVecPPD (tsCalc datosASumar[], short primPos, short ultPos, char* arr
              ultPos = medPos - 1;
         }
     }
+
     return -1;
 } // BusBinVecPPD
 
 bool verifInstanciaPrevNom(tsCalc arregloCalc[], char* nomEnParDia) {
     for (short i = 0; i < contParDiaPaises; i++) {
-        if (strcmp(arregloCalc[i].nomPais, nomEnParDia) == 0) return true;
+        if (strcmp(nomEnParDia, arregloCalc[i].nomPais) == 0) return true;
     }
     return false;
 }
