@@ -45,7 +45,8 @@ typedef struct {
 
 ifstream archivoPaises;
 ifstream archivoParteDiario;
-static int contParDiaPaises;
+static int  contParDiaPaises,
+            contPaisesPaises;
 static tsPais paises[200];
 static tsParDia datosPaises[200];
 static tsCalc totalPaises[200];
@@ -58,9 +59,12 @@ bool LeerParteDiario(ifstream &archivoProcParDia);
 string replicate(char car, unsigned short n);
 void Listado ();
 void borrarEspaciosDeStr(char* string);
-bool IntCmbLPD(tsParDia &elem1, tsParDia &elem2);
-bool OrdxBurLPD(tsParDia v[], short card);
-short BusBinVecPPD (tsCalc datosASumar[], short primPos, short ultPos, char* arrayNomPais);
+bool IntCmb(tsParDia &elem1, tsParDia &elem2);
+bool IntCmb(tsPais &elem1, tsPais &elem2);
+bool OrdxBur(tsParDia v[], short card);
+bool OrdxBur(tsPais v[], short card);
+short BusBinVec (tsCalc datosASumar[], short primPos, short ultPos, char* arrayNomPais);
+short BusBinVec (tsPais vConNumHab[], short primPos, short ultPos, char* arrayNomPais);
 void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]);
 bool verifInstanciaPrevNom(tsCalc arregloCalc[], char* nomEnParDia);
 
@@ -185,7 +189,15 @@ bool LeerPaises(ifstream &archivoALeerPaises) {
         paises[i].cantHabitantes = atoi(cantHabitantesToInt);
 
      i++;
-     }
+     contPaisesPaises++;
+    }
+
+    for (short i = 0; i < contPaisesPaises; i++) {
+        cout << paises[i].nomPais << " en posicion: " << i << endl;
+    }
+
+    OrdxBur(paises, contPaisesPaises);
+
     return true;
 } // LeerPaises
 
@@ -283,7 +295,7 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
         i++;
    }
 
-    OrdxBurLPD(datosPaises, i + 1);
+    OrdxBur(datosPaises, i + 1);
 
     return true;
 } // LeerParteDiario
@@ -296,31 +308,6 @@ void borrarEspaciosDeStr(char* string){
         string[counter] = '\0';
     }
 } // borrarEspaciosDeStr
-
-bool OrdxBurLPD(tsParDia v[], short card) {
-    short k = 0;
-    bool swap;
-
-    do{
-        k++;
-        swap = false;
-        for (short i = 0; i < card - k - 1; i++){
-            if (strcmp(v[i].nomPais, v[i+1].nomPais) > 0){
-                IntCmbLPD(v[i], v[i+1]);
-                swap = true;
-            }
-        }
-    } while (swap);
-
-    return true;
-} // OrdxBurLPD
-
-bool IntCmbLPD(tsParDia &elem1, tsParDia &elem2) {
-    tsParDia aux = elem1;
-    elem1 = elem2;
-    elem2 = aux;
-    return true;
-} // IntCmb
 
 // uso totalPaises y datosPaises
 
@@ -335,7 +322,7 @@ void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
             contTotPaises++;
         }
 
-        posRetornada = BusBinVecPPD(totalPaises, 0, contTotPaises, datosAMas[i].nomPais);
+        posRetornada = BusBinVec(totalPaises, 0, contTotPaises, datosAMas[i].nomPais);
 
         if ( posRetornada == -1 ) {
 
@@ -363,12 +350,106 @@ void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
 
     }
 
+    /*
+    typedef struct {
+    char    nomPais[20];
+    int		cantHabitantes,
+            totalhisopados,
+			totalinfectados,
+			totalrecuperados,
+			totalfallecidos,
+            totalHisopadosMes[7],
+			totalInfectadosMes[7],
+			totalRecuperadosMes[7],
+			totalFallecidosMes[7];
+} tvrPais;
+    */
+    short posNomPaisEnVector;
+
+    for (short i = 0; i < contParDiaPaises; i++) {
+        strcpy(paisFinal[i].nomPais, totalPaises[i].nomPais);
+
+        cout << "Se busca el pais: " << paisFinal[i].nomPais << endl;
+        
+        posNomPaisEnVector = BusBinVec(paises, 0, contPaisesPaises, paisFinal[i].nomPais);
+
+        if (posNomPaisEnVector == -1) {
+            cout << "Error en función ProcesarParteDiario! No se encontró el país dentro del vector \"tsPais paises[MAX_PAIS]\"\n";
+            return;
+        }
+        paisFinal[i].cantHabitantes = paises[posNomPaisEnVector].cantHabitantes;
+        
+        cout << totalPaises[i].nomPais << " \\ " << paisFinal[i].nomPais << endl;
+
+        for (short j = 1; j < 8; j++) {
+            paisFinal[i].totalhisopados += totalPaises[i].totalHisopadosMes[j];
+            paisFinal[i].totalinfectados += totalPaises[i].totalInfectadosMes[j];
+            paisFinal[i].totalrecuperados += totalPaises[i].totalRecuperadosMes[j];
+            paisFinal[i].totalfallecidos += totalPaises[i].totalFallecidosMes[j];
+            paisFinal[i].totalHisopadosMes[j] += totalPaises[i].totalHisopadosMes[j];
+            paisFinal[i].totalInfectadosMes[j] += totalPaises[i].totalInfectadosMes[j];
+            paisFinal[i].totalRecuperadosMes[j] += totalPaises[i].totalRecuperadosMes[j];
+            paisFinal[i].totalFallecidosMes[j] += totalPaises[i].totalFallecidosMes[j];
+        }
+    }    
+
 } // ProcesarParteDiario
 
-short BusBinVecPPD (tsCalc datosASumar[], short primPos, short ultPos, char* arrayNomPais){
+bool OrdxBur(tsParDia v[], short card) {
+    short k = 0;
+    bool swap;
+
+    do {
+        k++;
+        swap = false;
+        for (short i = 0; i < card - k - 1; i++){
+            if (strcmp(v[i].nomPais, v[i+1].nomPais) > 0){
+                IntCmb(v[i], v[i+1]);
+                swap = true;
+            }
+        }
+    } while (swap);
+
+    return true;
+} // OrdxBur
+
+bool OrdxBur(tsPais v[], short card) {
+    short k = 0;
+    bool swap;
+
+    do {
+        k++;
+        swap = false;
+        for (short i = 0; i < card - k - 1; i++) {
+            if (strcmp(v[i].nomPais, v[i+1].nomPais) > 0 ){
+                IntCmb(v[i], v[i+1]);
+                swap = true;
+            }
+        }
+    } while (swap);
+
+    return true;
+} // OrdxBur
+
+bool IntCmb(tsParDia &elem1, tsParDia &elem2) {
+    tsParDia aux = elem1;
+    elem1 = elem2;
+    elem2 = aux;
+    return true;
+} // IntCmb
+
+bool IntCmb(tsPais &elem1, tsPais &elem2) {
+    tsPais aux = elem1;
+    elem1 = elem2;
+    elem2 = aux;
+    return true;
+} // IntCmb
+
+short BusBinVec (tsCalc datosASumar[], short primPos, short ultPos, char* arrayNomPais){
+    short medPos;
 
     while (primPos < ultPos) {
-        short medPos = (primPos + ultPos) / 2;
+        medPos = (primPos + ultPos) / 2;
 
         if (strcmp(arrayNomPais, datosASumar[medPos].nomPais) == 0) {
             return medPos;
@@ -381,7 +462,26 @@ short BusBinVecPPD (tsCalc datosASumar[], short primPos, short ultPos, char* arr
     }
 
     return -1;
-} // BusBinVecPPD
+} // BusBinVec
+
+short BusBinVec (tsPais vConNumHab[], short primPos, short ultPos, char* arrayNomPais) {
+    short medPos;
+
+    while (primPos < ultPos) {
+        medPos = (primPos + ultPos) / 2;
+
+        if (strcmp(arrayNomPais, vConNumHab[medPos].nomPais) == 0) {
+            return medPos;
+        }
+        if (strcmp(vConNumHab[medPos].nomPais, arrayNomPais) < 0) {
+            primPos = medPos + 1;
+        } else {
+            ultPos = medPos -1;
+        }
+    }
+
+    return -1;
+} // BusBinVec
 
 bool verifInstanciaPrevNom(tsCalc arregloCalc[], char* nomEnParDia) {
     for (short i = 0; i < contParDiaPaises; i++) {
