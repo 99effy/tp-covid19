@@ -192,10 +192,6 @@ bool LeerPaises(ifstream &archivoALeerPaises) {
      contPaisesPaises++;
     }
 
-    for (short i = 0; i < contPaisesPaises; i++) {
-        cout << paises[i].nomPais << " en posicion: " << i << endl;
-    }
-
     OrdxBur(paises, contPaisesPaises);
 
     return true;
@@ -350,27 +346,11 @@ void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
 
     }
 
-    /*
-    typedef struct {
-    char    nomPais[20];
-    int		cantHabitantes,
-            totalhisopados,
-			totalinfectados,
-			totalrecuperados,
-			totalfallecidos,
-            totalHisopadosMes[7],
-			totalInfectadosMes[7],
-			totalRecuperadosMes[7],
-			totalFallecidosMes[7];
-} tvrPais;
-    */
     short posNomPaisEnVector;
 
-    for (short i = 0; i < contParDiaPaises; i++) {
+    for (short i = 0; i < contTotPaises; i++) {
         strcpy(paisFinal[i].nomPais, totalPaises[i].nomPais);
 
-        cout << "Se busca el pais: " << paisFinal[i].nomPais << endl;
-        
         posNomPaisEnVector = BusBinVec(paises, 0, contPaisesPaises, paisFinal[i].nomPais);
 
         if (posNomPaisEnVector == -1) {
@@ -378,8 +358,6 @@ void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
             return;
         }
         paisFinal[i].cantHabitantes = paises[posNomPaisEnVector].cantHabitantes;
-        
-        cout << totalPaises[i].nomPais << " \\ " << paisFinal[i].nomPais << endl;
 
         for (short j = 1; j < 8; j++) {
             paisFinal[i].totalhisopados += totalPaises[i].totalHisopadosMes[j];
@@ -476,9 +454,13 @@ short BusBinVec (tsPais vConNumHab[], short primPos, short ultPos, char* arrayNo
         if (strcmp(vConNumHab[medPos].nomPais, arrayNomPais) < 0) {
             primPos = medPos + 1;
         } else {
-            ultPos = medPos -1;
+            ultPos = medPos - 1;
         }
     }
+
+     if (strcmp(arrayNomPais, vConNumHab[ultPos].nomPais) == 0) {
+         return ultPos;
+     }
 
     return -1;
 } // BusBinVec
