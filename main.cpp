@@ -120,6 +120,10 @@ string replicate (char car, unsigned short n){
 
 void Listado() {
 
+    int     totalDatosPaisesCalc,
+            totalHabitPaisesCalc;
+    double  porcentajeFinal;
+
    ofstream OutPD1 ("ListadoHisopados.txt");
     OutPD1   << setw(82) <<"Listado de Hisopados" << endl
              << replicate('=',123) << endl
@@ -133,8 +137,20 @@ void Listado() {
              for(short j = 1; j < 8; j++){
              OutPD1 << setw(8) << paisFinal[i].totalHisopadosMes[j];
              }
-      OutPD1 << setw(19)<< paisFinal[i].totalhisopados << endl;
+      OutPD1 << setw(19)<< paisFinal[i].totalhisopados << setw(10) << setprecision(4)
+      << ((double)paisFinal[i].totalhisopados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+
     }
+    OutPD1 << endl;
+    
+    for (short i = 0; i < 30; i++) {
+        totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
+        totalDatosPaisesCalc += paisFinal[i].totalhisopados;
+    }
+    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
+
+    OutPD1 << "PORCENTAJE TOTAL EN RELACION HABITANTES/HISOPADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
 
 
     ofstream OutPD2 ("ListadoInfectados.txt");
@@ -150,8 +166,22 @@ void Listado() {
              for(short j = 1; j < 8; j++){
              OutPD2 << setw(8) << paisFinal[i].totalInfectadosMes[j];
              }
-      OutPD2 << setw(19)<< paisFinal[i].totalinfectados << endl;
+      OutPD2 << setw(19)<< paisFinal[i].totalinfectados << setw(10) << setprecision(4)
+      << ((double)paisFinal[i].totalinfectados * 100) / (double)paisFinal[i].cantHabitantes << endl;
     }
+    OutPD2 << endl;
+
+    totalDatosPaisesCalc = 0;
+    totalHabitPaisesCalc = 0;
+
+    for (short i = 0; i < 30; i++) {
+        totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
+        totalDatosPaisesCalc += paisFinal[i].totalinfectados;
+    }
+    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
+
+    OutPD2 << "PORCENTAJE TOTAL EN RELACION HABITANTES/INFECTADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
 
     ofstream OutPD3 ("ListadoRecuperados.txt");
     OutPD3   << setw(82) <<"Listado de Recuperados" << endl
@@ -166,9 +196,22 @@ void Listado() {
              for(short j = 1; j < 8; j++){
              OutPD3 << setw(8) << paisFinal[i].totalRecuperadosMes[j];
              }
-      OutPD3 << setw(19)<< paisFinal[i].totalrecuperados << endl;
+      OutPD3 << setw(19)<< paisFinal[i].totalrecuperados << setw(10) << setprecision(4)
+      << ((double)paisFinal[i].totalrecuperados * 100) / (double)paisFinal[i].cantHabitantes << endl;
     }
+    OutPD3 << endl;
 
+    totalDatosPaisesCalc = 0;
+    totalHabitPaisesCalc = 0;
+
+    for (short i = 0; i < 30; i++) {
+        totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
+        totalDatosPaisesCalc += paisFinal[i].totalrecuperados;
+    }
+    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
+
+    OutPD3 << "PORCENTAJE TOTAL EN RELACION HABITANTES/RECUPERADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
 
        ofstream OutPD4 ("ListadoFallecidos.txt");
      OutPD4   << setw(82) << "Listado de Fallecidos" << endl
@@ -179,12 +222,26 @@ void Listado() {
              << replicate('-',123) << endl;
         for (short i = 0; i < 30 ; i++ ) {
       OutPD4 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
-             << setw(11)<< paisFinal[i].cantHabitantes;
-             for(short j = 1; j < 8; j++){
-             OutPD4 << setw(8) << paisFinal[i].totalFallecidosMes[j];
-             }
-      OutPD4 << setw(19)<< paisFinal[i].totalfallecidos << endl;
+            << setw(11)<< paisFinal[i].cantHabitantes;
+            for(short j = 1; j < 8; j++){
+            OutPD4 << setw(8) << paisFinal[i].totalFallecidosMes[j];
+            }
+      OutPD4 << setw(19)<< paisFinal[i].totalfallecidos << setw(10) << setprecision(4)
+      << ((double)paisFinal[i].totalfallecidos * 100) / (double)paisFinal[i].cantHabitantes << endl;
     }
+    OutPD4 << endl;
+
+    totalDatosPaisesCalc = 0;
+    totalHabitPaisesCalc = 0;
+
+    for (short i = 0; i < 30; i++) {
+        totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
+        totalDatosPaisesCalc += paisFinal[i].totalfallecidos;
+    }
+    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
+
+    OutPD4 << "PORCENTAJE TOTAL EN RELACION HABITANTES/FALLECIDOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
 
 } // Listado
 
