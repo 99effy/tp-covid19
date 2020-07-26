@@ -219,7 +219,7 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
     char    cantDatoToInt[15],
             buffer[20],
             nomPais[20];
-    while (archivoALeerParDia.good() && (i < 1000)) {
+    while (archivoALeerParDia.good() && (i < 1400)) {
 
         short   mesReg,
                 diaReg,
