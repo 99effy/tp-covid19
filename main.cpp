@@ -16,18 +16,18 @@ typedef struct {
 
 typedef struct {
 	char    nomPais[20];
-	int		hisopados[7][31],
-			infectados[7][31],
-			recuperados[7][31],
-			fallecidos[7][31];
+	int		hisopados[8][32],
+			infectados[8][32],
+			recuperados[8][32],
+			fallecidos[8][32];
 } tsParDia;
 
 typedef struct {
 	char	nomPais[20];
-	int		totalHisopadosMes[7],
-			totalInfectadosMes[7],
-			totalRecuperadosMes[7],
-			totalFallecidosMes[7];
+	int		totalHisopadosMes[8],
+			totalInfectadosMes[8],
+			totalRecuperadosMes[8],
+			totalFallecidosMes[8];
 } tsCalc;
 
 typedef struct {
@@ -37,20 +37,20 @@ typedef struct {
 			totalinfectados,
 			totalrecuperados,
 			totalfallecidos,
-            totalHisopadosMes[7],
-			totalInfectadosMes[7],
-			totalRecuperadosMes[7],
-			totalFallecidosMes[7];
+            totalHisopadosMes[8],
+			totalInfectadosMes[8],
+			totalRecuperadosMes[8],
+			totalFallecidosMes[8];
 } tvrPais;
 
 ifstream archivoPaises;
 ifstream archivoParteDiario;
 static int  contParDiaPaises,
             contPaisesPaises;
-static tsPais paises[200];
-static tsParDia datosPaises[200];
-static tsCalc totalPaises[200];
-static tvrPais paisFinal[200];
+static tsPais paises[MAX_PAIS];
+static tsParDia datosPaises[1400];
+static tsCalc totalPaises[MAX_PAIS];
+static tvrPais paisFinal[MAX_PAIS];
 
 void Abrir();
 void Cerrar();
@@ -120,57 +120,72 @@ string replicate (char car, unsigned short n){
 
 void Listado() {
 
-    ofstream OutPD1 ("ListadoHisopados.txt");
+   ofstream OutPD1 ("ListadoHisopados.txt");
     OutPD1   << setw(82) <<"Listado de Hisopados" << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(35) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Hisopados por mes " << setw(13) << replicate('-', 13) << " Cant.   Porcentajes\n"
+             << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Hisopados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentajes\n"
              << replicate('-',123) << endl
-             << "Ord.  País                               Ene      Feb     Mar      Abr     May      Jun       Jul     Tot.                "<< endl
+             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul             Tot."<< endl
              << replicate('-',123) << endl;
     for (short i = 0; i < 30 ; i++ ) {
-      OutPD1 << setw(3) <<  i+1 << setw (20) << datosPaises[i].nomPais << ' '
-             << paises[i].cantHabitantes
-             << "\t" <<  "teatrfag"  << ' ' << endl;
+      OutPD1 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
+             << setw(11)<< paisFinal[i].cantHabitantes;
+             for(short j = 1; j < 8; j++){
+             OutPD1 << setw(8) << paisFinal[i].totalHisopadosMes[j];
+             }
+      OutPD1 << setw(19)<< paisFinal[i].totalhisopados << endl;
     }
 
 
     ofstream OutPD2 ("ListadoInfectados.txt");
     OutPD2   << setw(82) <<"Listado de Infectados" << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom.                 Cant.Hab.     ------------- Cantidades de Infectados por mes ------------   Cant.   Porcentajes" << endl
+             << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Infectados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentajes\n"
              << replicate('-',123) << endl
-             << "Ord.  País                                Ene      Feb     Mar      Abr     May      Jun       Jul     Tot.                "<< endl
+              << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul              Tot."<< endl
              << replicate('-',123) << endl;
-     for  (short i = 0; i < 30 ; i++ ) {
-     OutPD2  << setw(3) <<  i+1 << setw (20) << datosPaises[i].nomPais << ' '
-             << paises[i].cantHabitantes
-             << "\t" << "datosPaises.infectados" << ' ' << endl;
+     for (short i = 0; i < 30 ; i++ ) {
+      OutPD2 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
+             << setw(11)<< paisFinal[i].cantHabitantes;
+             for(short j = 1; j < 8; j++){
+             OutPD2 << setw(8) << paisFinal[i].totalInfectadosMes[j];
+             }
+      OutPD2 << setw(19)<< paisFinal[i].totalinfectados << endl;
     }
 
     ofstream OutPD3 ("ListadoRecuperados.txt");
     OutPD3   << setw(82) <<"Listado de Recuperados" << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom.                 Cant.Hab.     ------------- Cantidades de Recuperados por mes ------------   Cant.   Porcentajes" << endl
+             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Recuperados por mes " << setw(13) << replicate('-', 19) << " Cant.   Porcentajes\n"
              << replicate('-',123) << endl
-             << "Ord.  País                                Ene      Feb     Mar      Abr     May      Jun       Jul     Tot.                "<< endl
+             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul            Tot."<< endl
              << replicate('-',123) << endl;
-     for (short i = 0; i < 30 ; i++ ) {
-      OutPD3 << setw(3) <<  i+1 << setw (20) << datosPaises[i].nomPais << ' '
-             << paises[i].cantHabitantes
-             << "\t" <<  "da" << ' ' << endl;
+        for (short i = 0; i < 30 ; i++ ) {
+      OutPD3 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
+             << setw(11)<< paisFinal[i].cantHabitantes;
+             for(short j = 1; j < 8; j++){
+             OutPD3 << setw(8) << paisFinal[i].totalRecuperadosMes[j];
+             }
+      OutPD3 << setw(19)<< paisFinal[i].totalrecuperados << endl;
     }
+
 
        ofstream OutPD4 ("ListadoFallecidos.txt");
      OutPD4   << setw(82) << "Listado de Fallecidos" << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom.                 Cant.Hab.     ------------- Cantidades de Fallecidos por mes ------------   Cant.   Porcentajes" << endl
+             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Fallecidos por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentajes\n"
              << replicate('-',123) << endl
-             << "Ord.  País                                Ene      Feb     Mar      Abr     May      Jun       Jul     Tot.                "<< endl
+             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul            Tot."<< endl
              << replicate('-',123) << endl;
-     for (short i = 0; i < 30 ; i++ ) {
-      OutPD4 << setw(3) <<  i+1 << setw (20) << datosPaises[i].nomPais << ' '
-             << "\t" <<  "teatrfag"  << ' ' << endl;
+        for (short i = 0; i < 30 ; i++ ) {
+      OutPD4 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
+             << setw(11)<< paisFinal[i].cantHabitantes;
+             for(short j = 1; j < 8; j++){
+             OutPD4 << setw(8) << paisFinal[i].totalFallecidosMes[j];
+             }
+      OutPD4 << setw(19)<< paisFinal[i].totalfallecidos << endl;
     }
+
 } // Listado
 
 bool LeerPaises(ifstream &archivoALeerPaises) {
@@ -179,7 +194,7 @@ bool LeerPaises(ifstream &archivoALeerPaises) {
     while ( archivoALeerPaises.good() * (i < MAX_PAIS) ) {
 
         char cantHabitantesToInt[15];
-        archivoALeerPaises.get(paises[i].nomPais, 20);
+        archivoALeerPaises.get(paises[i].nomPais, 19);
         borrarEspaciosDeStr(paises[i].nomPais);
         archivoALeerPaises.ignore();
         archivoALeerPaises >> paises[i].continente;
@@ -200,22 +215,20 @@ bool LeerPaises(ifstream &archivoALeerPaises) {
 bool LeerParteDiario(ifstream &archivoALeerParDia) {
 
     short i = 0;
-    bool paisCoincide;
     bool error;
-    char    cantDatoToInt[15];
-    char    buffer[20],
+    char    cantDatoToInt[15],
+            buffer[20],
             nomPais[20];
-    while (archivoALeerParDia.good() && (i < MAX_PAIS)) {
+    while (archivoALeerParDia.good() && (i < 1000)) {
 
-        short   loopCounter,
-                mesReg,
+        short   mesReg,
                 diaReg,
                 hisopadosReg,
                 infectadosReg,
                 recuperadosReg,
                 fallecidosReg;
 
-        archivoALeerParDia.get(nomPais, 20);
+        archivoALeerParDia.get(nomPais, 19);
         borrarEspaciosDeStr(nomPais);
         archivoALeerParDia.ignore();
         archivoALeerParDia >> mesReg;
@@ -243,7 +256,6 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
                 case 10:
                 case 12:
                     if ( (diaReg >= 1) && (diaReg <= 31) ) {
-
                         datosPaises[i].hisopados[mesReg][diaReg] = hisopadosReg;
                         datosPaises[i].infectados[mesReg][diaReg] = infectadosReg;
                         datosPaises[i].recuperados[mesReg][diaReg] = recuperadosReg;
@@ -258,7 +270,6 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
                 case 9:
                 case 11:
                     if ( (diaReg >= 1) && (diaReg <= 30) ) {
-
                         datosPaises[i].hisopados[mesReg][diaReg] = hisopadosReg;
                         datosPaises[i].infectados[mesReg][diaReg] = infectadosReg;
                         datosPaises[i].recuperados[mesReg][diaReg] = recuperadosReg;
@@ -269,12 +280,10 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
                     }
                 case 2:
                     if ( (diaReg >= 1) && (diaReg <= 29) ) {
-
                         datosPaises[i].hisopados[mesReg][diaReg] = hisopadosReg;
                         datosPaises[i].infectados[mesReg][diaReg] = infectadosReg;
                         datosPaises[i].recuperados[mesReg][diaReg] = recuperadosReg;
                         datosPaises[i].fallecidos[mesReg][diaReg] = fallecidosReg;
-
                     } else {
                         error = true;
                         break;
@@ -288,6 +297,7 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
             cout << "Uno de los días o meses tiene un valor invalido!\n";
             return false;
         }
+        
         i++;
    }
 
@@ -330,14 +340,8 @@ void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
             for (short k = 1; k < 8; k++) {
                 for (short j = 1; j < 31; j++) {
                     totalPaises[posRetornada].totalHisopadosMes[k] += datosAMas[i].hisopados[k][j];
-                }
-                for (short j = 1; j < 31; j++) {
                     totalPaises[posRetornada].totalInfectadosMes[k] += datosAMas[i].infectados[k][j];
-                }
-                for (short j = 1; j < 31; j++) {
                     totalPaises[posRetornada].totalRecuperadosMes[k] += datosAMas[i].recuperados[k][j];
-                }
-                for (short j = 1; j < 31; j++) {
                     totalPaises[posRetornada].totalFallecidosMes[k] += datosAMas[i].fallecidos[k][j];
                 }
             }
@@ -370,7 +374,7 @@ void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
             paisFinal[i].totalFallecidosMes[j] += totalPaises[i].totalFallecidosMes[j];
         }
     }    
-
+    
 } // ProcesarParteDiario
 
 bool OrdxBur(tsParDia v[], short card) {
