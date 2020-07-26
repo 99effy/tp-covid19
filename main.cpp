@@ -125,11 +125,11 @@ void Listado() {
     double  porcentajeFinal;
 
    ofstream OutPD1 ("ListadoHisopados.txt");
-    OutPD1   << setw(82) <<"Listado de Hisopados" << endl
+    OutPD1   << replicate('-',57) <<"Listado de Hisopados" << replicate('-',44) << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Hisopados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentajes\n"
+             << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Hisopados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentaje\n"
              << replicate('-',123) << endl
-             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul             Tot."<< endl
+             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul              Tot."<< endl
              << replicate('-',123) << endl;
     for (short i = 0; i < 30 ; i++ ) {
       OutPD1 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
@@ -137,28 +137,33 @@ void Listado() {
              for(short j = 1; j < 8; j++){
              OutPD1 << setw(8) << paisFinal[i].totalHisopadosMes[j];
              }
-      OutPD1 << setw(19)<< paisFinal[i].totalhisopados << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalhisopados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+      OutPD1 << setw(16)<< paisFinal[i].totalhisopados << setw(13) << setprecision(4)
+      << ((double)paisFinal[i].totalhisopados * 100) / (double)paisFinal[i].cantHabitantes << "%" << endl;
 
     }
     OutPD1 << endl;
-    
+
     for (short i = 0; i < 30; i++) {
         totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
         totalDatosPaisesCalc += paisFinal[i].totalhisopados;
     }
     porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
 
-    OutPD1 << "PORCENTAJE TOTAL EN RELACION HABITANTES/HISOPADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
-    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
+    OutPD1
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "CANTIDAD TOTAL DE HISOPADOS: " << totalDatosPaisesCalc << endl
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "PORCENTAJE TOTAL EN RELACION HABITANTES/HISOPADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal << "%" << endl
+    << "\t" << replicate('-',87) << endl;
 
 
     ofstream OutPD2 ("ListadoInfectados.txt");
-    OutPD2   << setw(82) <<"Listado de Infectados" << endl
+    OutPD2   << replicate('-',57) <<"Listado de Infectados" << replicate('-',44) << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Infectados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentajes\n"
+             << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Infectados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentaje\n"
              << replicate('-',123) << endl
-              << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul              Tot."<< endl
+              << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul               Tot."<< endl
              << replicate('-',123) << endl;
      for (short i = 0; i < 30 ; i++ ) {
       OutPD2 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
@@ -166,8 +171,8 @@ void Listado() {
              for(short j = 1; j < 8; j++){
              OutPD2 << setw(8) << paisFinal[i].totalInfectadosMes[j];
              }
-      OutPD2 << setw(19)<< paisFinal[i].totalinfectados << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalinfectados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+      OutPD2 << setw(16)<< paisFinal[i].totalinfectados << setw(13) << setprecision(4)
+      << ((double)paisFinal[i].totalinfectados * 100) / (double)paisFinal[i].cantHabitantes << "%" << endl;
     }
     OutPD2 << endl;
 
@@ -180,15 +185,20 @@ void Listado() {
     }
     porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
 
-    OutPD2 << "PORCENTAJE TOTAL EN RELACION HABITANTES/INFECTADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
-    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
+    OutPD2
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "CANTIDAD TOTAL DE INFECTADOS: " << totalDatosPaisesCalc << endl
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "PORCENTAJE TOTAL EN RELACION HABITANTES/INFECTADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal << "%" << endl
+    << "\t" << replicate('-',87) << endl;
 
     ofstream OutPD3 ("ListadoRecuperados.txt");
-    OutPD3   << setw(82) <<"Listado de Recuperados" << endl
+    OutPD3   << replicate('-',57) <<"Listado de Recuperados" << replicate('-',44) << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Recuperados por mes " << setw(13) << replicate('-', 19) << " Cant.   Porcentajes\n"
+             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Recuperados por mes " << setw(13) << replicate('-', 19) << " Cant.   Porcentaje\n"
              << replicate('-',123) << endl
-             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul            Tot."<< endl
+             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul             Tot."<< endl
              << replicate('-',123) << endl;
         for (short i = 0; i < 30 ; i++ ) {
       OutPD3 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
@@ -196,8 +206,8 @@ void Listado() {
              for(short j = 1; j < 8; j++){
              OutPD3 << setw(8) << paisFinal[i].totalRecuperadosMes[j];
              }
-      OutPD3 << setw(19)<< paisFinal[i].totalrecuperados << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalrecuperados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+      OutPD3 << setw(16)<< paisFinal[i].totalrecuperados << setw(13) << setprecision(4)
+      << ((double)paisFinal[i].totalrecuperados * 100) / (double)paisFinal[i].cantHabitantes << "%" << endl;
     }
     OutPD3 << endl;
 
@@ -210,15 +220,20 @@ void Listado() {
     }
     porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
 
-    OutPD3 << "PORCENTAJE TOTAL EN RELACION HABITANTES/RECUPERADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
-    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
+    OutPD3
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "CANTIDAD TOTAL DE RECUPERADOS: " << totalDatosPaisesCalc << endl
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "PORCENTAJE TOTAL EN RELACION HABITANTES/RECUPERADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal << "%" << endl
+    << "\t" << replicate('-',87) << endl;
 
        ofstream OutPD4 ("ListadoFallecidos.txt");
-     OutPD4   << setw(82) << "Listado de Fallecidos" << endl
+     OutPD4  << replicate('-',57) <<"Listado de Fallecidos" << replicate('-',44) << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Fallecidos por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentajes\n"
+             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Fallecidos por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentaje\n"
              << replicate('-',123) << endl
-             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul            Tot."<< endl
+             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul             Tot."<< endl
              << replicate('-',123) << endl;
         for (short i = 0; i < 30 ; i++ ) {
       OutPD4 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
@@ -226,8 +241,8 @@ void Listado() {
             for(short j = 1; j < 8; j++){
             OutPD4 << setw(8) << paisFinal[i].totalFallecidosMes[j];
             }
-      OutPD4 << setw(19)<< paisFinal[i].totalfallecidos << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalfallecidos * 100) / (double)paisFinal[i].cantHabitantes << endl;
+      OutPD4 << setw(16)<< paisFinal[i].totalfallecidos << setw(13) << setprecision(4)
+      << ((double)paisFinal[i].totalfallecidos * 100) / (double)paisFinal[i].cantHabitantes << "%" << endl;
     }
     OutPD4 << endl;
 
@@ -239,9 +254,13 @@ void Listado() {
         totalDatosPaisesCalc += paisFinal[i].totalfallecidos;
     }
     porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
-
-    OutPD4 << "PORCENTAJE TOTAL EN RELACION HABITANTES/FALLECIDOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
-    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
+    OutPD4
+    << "\t" << replicate('-',87) << endl
+    << "\t "<< "CANTIDAD TOTAL DE FALLECIDOS: "<< totalDatosPaisesCalc << endl
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "PORCENTAJE TOTAL EN RELACION HABITANTES/FALLECIDOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal << "%" << endl
+    << "\t" << replicate('-',87) << endl;
 
 } // Listado
 
