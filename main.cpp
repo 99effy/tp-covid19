@@ -48,7 +48,7 @@ ifstream archivoParteDiario;
 static int  contParDiaPaises,
             contPaisesPaises;
 static tsPais paises[MAX_PAIS];
-static tsParDia datosPaises[1400];
+static tsParDia datosPaises[2800];
 static tsCalc totalPaises[MAX_PAIS];
 static tvrPais paisFinal[MAX_PAIS];
 
@@ -219,7 +219,7 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
     char    cantDatoToInt[15],
             buffer[20],
             nomPais[20];
-    while (archivoALeerParDia.good() && (i < 1400)) {
+    while (archivoALeerParDia.good() && (i < 2800)) {
 
         short   mesReg,
                 diaReg,
