@@ -157,7 +157,7 @@ void Listado() {
              OutPD1 << setw(8) << paisFinal[i].totalHisopadosMes[j];
              }
       OutPD1 << setw(19)<< paisFinal[i].totalhisopados << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalhisopados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+      << ((double)paisFinal[i].totalhisopados * 100) / (double)paisFinal[i].cantHabitantes) << endl;
 
     }
     OutPD1 << endl;
@@ -186,7 +186,7 @@ void Listado() {
              OutPD2 << setw(8) << paisFinal[i].totalInfectadosMes[j];
              }
       OutPD2 << setw(19)<< paisFinal[i].totalinfectados << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalinfectados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+      << ((double)paisFinal[i].totalinfectados * 100) / (double)paisFinal[i].cantHabitantes) << endl;
     }
     OutPD2 << endl;
 
@@ -216,7 +216,7 @@ void Listado() {
              OutPD3 << setw(8) << paisFinal[i].totalRecuperadosMes[j];
              }
       OutPD3 << setw(19)<< paisFinal[i].totalrecuperados << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalrecuperados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+      << ((double)paisFinal[i].totalrecuperados * 100) / (double)paisFinal[i].cantHabitantes) << endl;
     }
     OutPD3 << endl;
 
@@ -246,7 +246,7 @@ void Listado() {
             OutPD4 << setw(8) << paisFinal[i].totalFallecidosMes[j];
             }
       OutPD4 << setw(19)<< paisFinal[i].totalfallecidos << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalfallecidos * 100) / (double)paisFinal[i].cantHabitantes << endl;
+      << ((double)paisFinal[i].totalfallecidos * 100) / (double)paisFinal[i].cantHabitantes) << endl;
     }
     OutPD4 << endl;
 
