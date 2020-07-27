@@ -166,7 +166,7 @@ void Listado() {
         totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
         totalDatosPaisesCalc += paisFinal[i].totalhisopados;
     }
-    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
+    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc);
 
     OutPD1 << "PORCENTAJE TOTAL EN RELACION HABITANTES/HISOPADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
     << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
@@ -197,7 +197,7 @@ void Listado() {
         totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
         totalDatosPaisesCalc += paisFinal[i].totalinfectados;
     }
-    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
+    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc);
 
     OutPD2 << "PORCENTAJE TOTAL EN RELACION HABITANTES/INFECTADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
     << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
@@ -227,7 +227,7 @@ void Listado() {
         totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
         totalDatosPaisesCalc += paisFinal[i].totalrecuperados;
     }
-    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
+    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc);
 
     OutPD3 << "PORCENTAJE TOTAL EN RELACION HABITANTES/RECUPERADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
     << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
@@ -257,7 +257,7 @@ void Listado() {
         totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
         totalDatosPaisesCalc += paisFinal[i].totalfallecidos;
     }
-    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
+    porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc);
 
     OutPD4 << "PORCENTAJE TOTAL EN RELACION HABITANTES/FALLECIDOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
     << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
