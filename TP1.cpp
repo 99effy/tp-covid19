@@ -1,22 +1,3 @@
-/*
-Trabajo Práctico COVID-19
-ID Archivo: TP1.cpp
-Docente: Hugo Cuello
-Curso: K1045 Turno Tarde
-Fecha: Julio, 2020
-Autores: Adriel Aran, Emanuel Andres Sánchez, Esteban Padilla, Evelyn Denisse Saadjian, 
-Facundo García Pergañeda, Julian Gabriel Novoa, Lourdes María de Lucas
-
-Comentario:
-El programa debe obtener los datos correspondientes a la cantidad de hisopados, 
-infectados, recuperados y fallecidos identificados en cada día de los primeros 
-7 meses del año.
-Luego de esto, debe computar sus totales y el porcentaje de hisopados, infectados,
-recuperados y fallecidos en relación con la cantidad total de habitantes por país.
-Finalizadas estos procesos, el programa imprime los resultados de forma ordenada 
-en un archivo de tipo Txt.
-*/
-
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -65,7 +46,8 @@ typedef struct {
 ifstream archivoPaises;
 ifstream archivoParteDiario;
 static int  contParDiaPaises,
-            contPaisesPaises;
+            contPaisesPaises,
+            contTotPaises;
 static tsPais paises[MAX_PAIS];
 static tsParDia datosPaises[2800];
 static tsCalc totalPaises[MAX_PAIS];
@@ -80,8 +62,13 @@ void Listado ();
 void borrarEspaciosDeStr(char* string);
 bool IntCmb(tsParDia &elem1, tsParDia &elem2);
 bool IntCmb(tsPais &elem1, tsPais &elem2);
+bool IntCmb(tvrPais &elem1, tvrPais &elem2);
 bool OrdxBur(tsParDia v[], short card);
 bool OrdxBur(tsPais v[], short card);
+bool OrdxBurTvrPaisXHis(tvrPais v[], short card);
+bool OrdxBurTvrPaisXInf(tvrPais v[], short card);
+bool OrdxBurTvrPaisXRec(tvrPais v[], short card);
+bool OrdxBurTvrPaisXFal(tvrPais v[], short card);
 short BusBinVec (tsCalc datosASumar[], short primPos, short ultPos, char* arrayNomPais);
 short BusBinVec (tsPais vConNumHab[], short primPos, short ultPos, char* arrayNomPais);
 void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]);
@@ -142,51 +129,59 @@ void Listado() {
     int     totalDatosPaisesCalc,
             totalHabitPaisesCalc;
     double  porcentajeFinal;
+    
+    OrdxBurTvrPaisXHis(paisFinal, contTotPaises);
 
    ofstream OutPD1 ("ListadoHisopados.txt");
-    OutPD1   << setw(82) <<"Listado de Hisopados" << endl
-             << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Hisopados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentajes\n"
-             << replicate('-',123) << endl
-             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul             Tot."<< endl
-             << replicate('-',123) << endl;
+    OutPD1  << replicate('-',57) <<"Listado de Hisopados" << replicate('-',44) << endl
+            << replicate('=',123) << endl
+            << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Hisopados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentaje\n"
+            << replicate('-',123) << endl
+            << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul              Tot."<< endl
+            << replicate('-',123) << endl;
     for (short i = 0; i < 30 ; i++ ) {
-      OutPD1 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
-             << setw(11)<< paisFinal[i].cantHabitantes;
-             for(short j = 1; j < 8; j++){
-             OutPD1 << setw(8) << paisFinal[i].totalHisopadosMes[j];
-             }
-      OutPD1 << setw(19)<< paisFinal[i].totalhisopados << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalhisopados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+    OutPD1  << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
+            << setw(11)<< paisFinal[i].cantHabitantes;
+            for(short j = 1; j < 8; j++){
+            OutPD1 << setw(8) << paisFinal[i].totalHisopadosMes[j];
+            }
+        OutPD1 << setw(16)<< paisFinal[i].totalhisopados << setw(13) << setprecision(4)
+        << ((double)paisFinal[i].totalhisopados * 100) / (double)paisFinal[i].cantHabitantes << "%" << endl;
 
     }
     OutPD1 << endl;
-    
+
     for (short i = 0; i < 30; i++) {
         totalHabitPaisesCalc += paisFinal[i].cantHabitantes;
         totalDatosPaisesCalc += paisFinal[i].totalhisopados;
     }
     porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
 
-    OutPD1 << "PORCENTAJE TOTAL EN RELACION HABITANTES/HISOPADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
-    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
+    OutPD1
+        << "\t" << replicate('-',87) << endl
+        << "\t" << "CANTIDAD TOTAL DE HISOPADOS: " << totalDatosPaisesCalc << endl
+        << "\t" << replicate('-',87) << endl
+        << "\t" << "PORCENTAJE TOTAL EN RELACION HABITANTES/HISOPADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+        << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal << "%" << endl
+        << "\t" << replicate('-',87) << endl;
 
+    OrdxBurTvrPaisXInf(paisFinal, contTotPaises);
 
     ofstream OutPD2 ("ListadoInfectados.txt");
-    OutPD2   << setw(82) <<"Listado de Infectados" << endl
-             << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Infectados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentajes\n"
-             << replicate('-',123) << endl
-              << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul              Tot."<< endl
-             << replicate('-',123) << endl;
-     for (short i = 0; i < 30 ; i++ ) {
-      OutPD2 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
-             << setw(11)<< paisFinal[i].cantHabitantes;
-             for(short j = 1; j < 8; j++){
-             OutPD2 << setw(8) << paisFinal[i].totalInfectadosMes[j];
-             }
-      OutPD2 << setw(19)<< paisFinal[i].totalinfectados << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalinfectados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+    OutPD2  << replicate('-',57) <<"Listado de Infectados" << replicate('-',44) << endl
+            << replicate('=',123) << endl
+            << "Nro.  Nom." << setw(29) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Infectados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentaje\n"
+            << replicate('-',123) << endl
+            << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul               Tot."<< endl
+            << replicate('-',123) << endl;
+        for (short i = 0; i < 30 ; i++ ) {
+        OutPD2 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
+            << setw(11)<< paisFinal[i].cantHabitantes;
+            for(short j = 1; j < 8; j++){
+            OutPD2 << setw(8) << paisFinal[i].totalInfectadosMes[j];
+            }
+        OutPD2 << setw(16)<< paisFinal[i].totalinfectados << setw(13) << setprecision(4)
+        << ((double)paisFinal[i].totalinfectados * 100) / (double)paisFinal[i].cantHabitantes << "%" << endl;
     }
     OutPD2 << endl;
 
@@ -199,24 +194,31 @@ void Listado() {
     }
     porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
 
-    OutPD2 << "PORCENTAJE TOTAL EN RELACION HABITANTES/INFECTADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
-    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
+    OutPD2
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "CANTIDAD TOTAL DE INFECTADOS: " << totalDatosPaisesCalc << endl
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "PORCENTAJE TOTAL EN RELACION HABITANTES/INFECTADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal << "%" << endl
+    << "\t" << replicate('-',87) << endl;
+
+    OrdxBurTvrPaisXRec(paisFinal, contTotPaises);
 
     ofstream OutPD3 ("ListadoRecuperados.txt");
-    OutPD3   << setw(82) <<"Listado de Recuperados" << endl
-             << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Recuperados por mes " << setw(13) << replicate('-', 19) << " Cant.   Porcentajes\n"
-             << replicate('-',123) << endl
-             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul            Tot."<< endl
-             << replicate('-',123) << endl;
-        for (short i = 0; i < 30 ; i++ ) {
-      OutPD3 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
-             << setw(11)<< paisFinal[i].cantHabitantes;
-             for(short j = 1; j < 8; j++){
-             OutPD3 << setw(8) << paisFinal[i].totalRecuperadosMes[j];
-             }
-      OutPD3 << setw(19)<< paisFinal[i].totalrecuperados << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalrecuperados * 100) / (double)paisFinal[i].cantHabitantes << endl;
+    OutPD3   << replicate('-',57) <<"Listado de Recuperados" << replicate('-',44) << endl
+            << replicate('=',123) << endl
+            << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Recuperados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentaje\n"
+            << replicate('-',123) << endl
+            << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul             Tot."<< endl
+            << replicate('-',123) << endl;
+    for (short i = 0; i < 30 ; i++ ) {
+    OutPD3 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
+            << setw(11)<< paisFinal[i].cantHabitantes;
+            for(short j = 1; j < 8; j++){
+            OutPD3 << setw(8) << paisFinal[i].totalRecuperadosMes[j];
+            }
+    OutPD3 << setw(16)<< paisFinal[i].totalrecuperados << setw(13) << setprecision(4)
+    << ((double)paisFinal[i].totalrecuperados * 100) / (double)paisFinal[i].cantHabitantes << "%" << endl;
     }
     OutPD3 << endl;
 
@@ -229,24 +231,31 @@ void Listado() {
     }
     porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
 
-    OutPD3 << "PORCENTAJE TOTAL EN RELACION HABITANTES/RECUPERADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
-    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
+    OutPD3
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "CANTIDAD TOTAL DE RECUPERADOS: " << totalDatosPaisesCalc << endl
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "PORCENTAJE TOTAL EN RELACION HABITANTES/RECUPERADOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal << "%" << endl
+    << "\t" << replicate('-',87) << endl;
 
-       ofstream OutPD4 ("ListadoFallecidos.txt");
-     OutPD4   << setw(82) << "Listado de Fallecidos" << endl
-             << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Fallecidos por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentajes\n"
-             << replicate('-',123) << endl
-             << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul            Tot."<< endl
-             << replicate('-',123) << endl;
-        for (short i = 0; i < 30 ; i++ ) {
-      OutPD4 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
-            << setw(11)<< paisFinal[i].cantHabitantes;
-            for(short j = 1; j < 8; j++){
-            OutPD4 << setw(8) << paisFinal[i].totalFallecidosMes[j];
-            }
-      OutPD4 << setw(19)<< paisFinal[i].totalfallecidos << setw(10) << setprecision(4)
-      << ((double)paisFinal[i].totalfallecidos * 100) / (double)paisFinal[i].cantHabitantes << endl;
+    OrdxBurTvrPaisXFal(paisFinal, contTotPaises);
+
+    ofstream OutPD4 ("ListadoFallecidos.txt");
+    OutPD4  << replicate('-',57) <<"Listado de Fallecidos" << replicate('-',44) << endl
+            << replicate('=',123) << endl
+            << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Fallecidos por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentaje\n"
+            << replicate('-',123) << endl
+            << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul             Tot."<< endl
+            << replicate('-',123) << endl;
+    for (short i = 0; i < 30 ; i++ ) {
+    OutPD4 << setw(3) <<  i+1 << setw (23) << paisFinal[i].nomPais
+        << setw(11)<< paisFinal[i].cantHabitantes;
+        for(short j = 1; j < 8; j++){
+        OutPD4 << setw(8) << paisFinal[i].totalFallecidosMes[j];
+        }
+    OutPD4 << setw(16)<< paisFinal[i].totalfallecidos << setw(13) << setprecision(4)
+    << ((double)paisFinal[i].totalfallecidos * 100) / (double)paisFinal[i].cantHabitantes << "%" << endl;
     }
     OutPD4 << endl;
 
@@ -258,9 +267,13 @@ void Listado() {
         totalDatosPaisesCalc += paisFinal[i].totalfallecidos;
     }
     porcentajeFinal = ((double)totalDatosPaisesCalc * 100) / (double)totalHabitPaisesCalc;
-
-    OutPD4 << "PORCENTAJE TOTAL EN RELACION HABITANTES/FALLECIDOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
-    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal;
+    OutPD4
+    << "\t" << replicate('-',87) << endl
+    << "\t "<< "CANTIDAD TOTAL DE FALLECIDOS: "<< totalDatosPaisesCalc << endl
+    << "\t" << replicate('-',87) << endl
+    << "\t" << "PORCENTAJE TOTAL EN RELACION HABITANTES/FALLECIDOS: " << totalDatosPaisesCalc << " * " << 100 << " \\ "
+    << totalHabitPaisesCalc << " = " << std::fixed << setprecision(4) << porcentajeFinal << "%" << endl
+    << "\t" << replicate('-',87) << endl;
 
 } // Listado
 
@@ -394,8 +407,8 @@ void borrarEspaciosDeStr(char* string){
 // uso totalPaises y datosPaises
 
 void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
-    short contTotPaises = 0;
     short posRetornada;
+    contTotPaises = 0;
 
     for (short i = 0; i < contParDiaPaises; i++) {
 
@@ -489,6 +502,70 @@ bool OrdxBur(tsPais v[], short card) {
     return true;
 } // OrdxBur
 
+bool OrdxBurTvrPaisXHis(tvrPais v[], short card) {
+    short k = 0;
+    bool swap;
+
+    do {
+        k++;
+        swap = false;
+        for (short i = 0; i < card - k - 1; i++) {
+            if (v[i].totalhisopados < v[i+1].totalhisopados) {
+                swap = IntCmb(v[i], v[i+1]);
+            }
+        }
+    } while (swap);
+    return true;
+} // OrdxBurTvrPaisXHis
+
+bool OrdxBurTvrPaisXInf(tvrPais v[], short card) {
+    short k = 0;
+    bool swap;
+
+    do {
+        k++;
+        swap = false;
+        for (short i = 0; i < card - k - 1; i++) {
+            if (v[i].totalinfectados < v[i+1].totalinfectados) {
+                swap = IntCmb(v[i], v[i+1]);
+            }
+        }
+    } while (swap);
+    return true;
+} // OrdxBurTvrPaisXInf
+
+bool OrdxBurTvrPaisXRec(tvrPais v[], short card) {
+    short k = 0;
+    bool swap;
+
+    do {
+        k++;
+        swap = false;
+        for (short i = 0; i < card - k - 1; i++) {
+            if (v[i].totalrecuperados < v[i+1].totalrecuperados) {
+                swap = IntCmb(v[i], v[i+1]);
+            }
+        }
+    } while (swap);
+    return true;
+} // OrdxBurTvrPaisXRec
+
+bool OrdxBurTvrPaisXFal(tvrPais v[], short card) {
+    short k = 0;
+    bool swap;
+
+    do {
+        k++;
+        swap = false;
+        for (short i = 0; i < card - k - 1; i++) {
+            if (v[i].totalfallecidos < v[i+1].totalfallecidos) {
+                swap = IntCmb(v[i], v[i+1]);
+            }
+        }
+    } while (swap);
+    return true;
+} // OrdxBurTvrPaisXFal
+
 bool IntCmb(tsParDia &elem1, tsParDia &elem2) {
     tsParDia aux = elem1;
     elem1 = elem2;
@@ -498,6 +575,13 @@ bool IntCmb(tsParDia &elem1, tsParDia &elem2) {
 
 bool IntCmb(tsPais &elem1, tsPais &elem2) {
     tsPais aux = elem1;
+    elem1 = elem2;
+    elem2 = aux;
+    return true;
+} // IntCmb
+
+bool IntCmb(tvrPais &elem1, tvrPais &elem2) {
+    tvrPais aux = elem1;
     elem1 = elem2;
     elem2 = aux;
     return true;
