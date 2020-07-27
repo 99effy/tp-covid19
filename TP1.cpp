@@ -1,3 +1,21 @@
+/*
+Trabajo Práctico COVID-19
+ID Archivo: TP1.cpp
+Docente: Hugo Cuello
+Curso: K1045 Turno Tarde
+Fecha: Julio, 2020
+Autores: Adriel Aran, Emanuel Andres Sánchez, Esteban Padilla, Evelyn Denisse Saadjian, 
+Facundo García Pergañeda, Julian Gabriel Novoa, Lourdes María de Lucas
+Comentario:
+El programa debe obtener los datos correspondientes a la cantidad de hisopados, 
+infectados, recuperados y fallecidos identificados en cada día de los primeros 
+7 meses del año.
+Luego de esto, debe computar sus totales y el porcentaje de hisopados, infectados,
+recuperados y fallecidos en relación con la cantidad total de habitantes por país.
+Finalizadas estos procesos, el programa imprime los resultados de forma ordenada 
+en un archivo de tipo Txt.
+*/
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -386,7 +404,7 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
             cout << "Uno de los días o meses tiene un valor invalido!\n";
             return false;
         }
-        
+
         i++;
    }
 
@@ -462,8 +480,8 @@ void ProcesarParteDiario (tsCalc totalPaises[], tsParDia datosAMas[]){
             paisFinal[i].totalRecuperadosMes[j] += totalPaises[i].totalRecuperadosMes[j];
             paisFinal[i].totalFallecidosMes[j] += totalPaises[i].totalFallecidosMes[j];
         }
-    }    
-    
+    }
+
 } // ProcesarParteDiario
 
 bool OrdxBur(tsParDia v[], short card) {
