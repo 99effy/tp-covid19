@@ -196,7 +196,7 @@ void Listado() {
     ofstream OutPD3 ("ListadoRecuperados.txt");
     OutPD3   << replicate('-',57) <<"Listado de Recuperados" << replicate('-',44) << endl
              << replicate('=',123) << endl
-             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Recuperados por mes " << setw(13) << replicate('-', 19) << " Cant.   Porcentaje\n"
+             << "Nro.  Nom." << setw(27) << "Cant.Hab. " << setw(13) << replicate('-', 13) << " Cantidades de Recuperados por mes " << setw(13) << replicate('-', 20) << " Cant.   Porcentaje\n"
              << replicate('-',123) << endl
              << "Ord.  País                                Ene     Feb     Mar     Abr     May     Jun     Jul             Tot."<< endl
              << replicate('-',123) << endl;
