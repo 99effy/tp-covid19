@@ -301,7 +301,7 @@ bool LeerPaises(ifstream &archivoALeerPaises) {
     while ( archivoALeerPaises.good() * (i < MAX_PAIS) ) {
 
         char cantHabitantesToInt[15];
-        archivoALeerPaises.get(paises[i].nomPais, 19);
+        archivoALeerPaises.get(paises[i].nomPais, 20);
         borrarEspaciosDeStr(paises[i].nomPais);
         archivoALeerPaises.ignore();
         archivoALeerPaises >> paises[i].continente;
@@ -335,7 +335,7 @@ bool LeerParteDiario(ifstream &archivoALeerParDia) {
                 recuperadosReg,
                 fallecidosReg;
 
-        archivoALeerParDia.get(nomPais, 19);
+        archivoALeerParDia.get(nomPais, 20);
         borrarEspaciosDeStr(nomPais);
         archivoALeerParDia.ignore();
         archivoALeerParDia >> mesReg;
